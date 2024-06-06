@@ -22,15 +22,15 @@ variables: dict = {
     'tau': [0, 1, 0],  		# Tip gap size [L]
     'rho': [1, -3, 0],  	# Density [M L^-3]
     'dt': [0, 0, 1],  		# Time step [T]
-    'DeltaP': [1, -1, -2],  # Pressure difference [M L^-1 T^-2]
+    'DeltaP': [1, -1, -2],      # Pressure difference [M L^-1 T^-2]
     'Gamma': [0, 2, -1],  	# Circulation [L^2 T^-1]
-    'yv': [0, 1, 0],  		# y coordinate of the vortex [L]
-    'zv': [0, 1, 0],  		# z coordinate of the vortex [L]
-    'yc': [0, 1, 0],  		# y coordinate of the vortex core [L]
-    'zc': [0, 1, 0],  		# z coordinate of the vortex core [L]
+    'y_v': [0, 1, 0],  		# y coordinate of the vortex [L]
+    'z_v': [0, 1, 0],  		# z coordinate of the vortex [L]
+    'y_c': [0, 1, 0],  		# y coordinate of the vortex core [L]
+    'z_c': [0, 1, 0],  		# z coordinate of the vortex core [L]
     'v': [0, 1, -1],  		# Velocity v [L T^-1]
     'w': [0, 1, -1],  		# Velocity w [L T^-1]
-}  							# 'name': [M, L, T]
+}  				# 'name': [M, L, T]
 
 dimensionless_numbers = apply_pi_theorem(variables)
 ```
