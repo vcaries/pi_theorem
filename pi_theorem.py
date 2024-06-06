@@ -8,7 +8,7 @@
         apply_pi_theorem(variables: dict) -> None:
             Applies the Pi theorem to the provided variables and dimensions, printing a list of dimensionless numbers.
 
-    Example usage based on Chen, G.T.; Greitzer’, E.M.; Tan’, C.S.; Marble, F.E. Similarity Analysis of Compressor Tip Clearance Flow Structure 1990:
+    Example usage based on Chen, G.T.; Greitzer, E.M.; Tan, C.S.; Marble, F.E. Similarity Analysis of Compressor Tip Clearance Flow Structure 1990:
 		variables: dict = {
 			'tau': [0, 1, 0],  		# Tip gap size [L]
 			'rho': [1, -3, 0],  	# Density [M L^-3]
