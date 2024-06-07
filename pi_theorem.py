@@ -31,17 +31,11 @@
 import sympy as sp
 
 
-def apply_pi_theorem(variables: dict) -> list[sp.Expr]:
+def apply_pi_theorem(variables: dict) -> None:
     """
-            Apply the Pi theorem to the given variables and their dimensions.
-
-            Parameters:
-            variables (Dict[str, List[int]]): Dictionary of variable names and their dimensions.
-                                                                              Each dimension is a list of integers representing the base dimensions
-                                                                              (e.g., [M, L, T]).
-
-            Returns:
-            List[sp.Expr]: List of dimensionless numbers as sympy expressions.
+        Apply the Pi theorem to the given variables and their dimensions and print the dimensionless numbers.
+        :param variables: Dictionary of variable names and their dimensions. Each dimension is a list of integers representing the base dimensions (e.g., [M, L, T]).
+        :type variables: dict[str, list[int]]
     """
     # Extract data from the dictionary
     names: list[str] = list(variables.keys())
