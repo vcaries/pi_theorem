@@ -44,40 +44,41 @@ def apply_pi_theorem(variables: dict) -> list[sp.Expr]:
             List[sp.Expr]: List of dimensionless numbers as sympy expressions.
     """
     # Extract data from the dictionary
-    names = list(variables.keys())
-    dimensions = list(variables.values())
+    names: list[str] = list(variables.keys())
+    dimensions: list[list[int]] = list(variables.values())
 
     # Number of variable
-    n = len(names)
+    n: int = len(names)
 
     # Create symbols for each variable name
-    var_symbols = sp.symbols(names)
+    var_symbols: list[sp.Symbol] = sp.symbols(names)
 
     # Create the dimension matrix
-    dim_matrix = sp.Matrix(dimensions).transpose()
+    dim_matrix: sp.Matrix = sp.Matrix(dimensions).transpose()
 
     # Calculate the rank of the dimension matrix
-    rank = dim_matrix.rank()
+    rank: int = dim_matrix.rank()
 
     # Number of dimensionless Pi terms
-    pi_terms_count = n - rank
+    pi_terms_count: int = n - rank
 
     # Null space of the dimension matrix (basis for the Pi terms)
-    null_space = dim_matrix.nullspace()
+    null_space: list[sp.Matrix] = dim_matrix.nullspace()
 
     # Ensure we have the correct number of null space vectors
     if len(null_space) != pi_terms_count:
         raise ValueError('The null space does not have the expected number of vectors.')
 
     # Create the dimensionless Pi terms
-    pi_terms = []
+    pi_terms: list[sp.Expr] = []
     for basis_vector in null_space:
-        pi_term = 1
+        pi_term: int = 1
         for exponent, var_symbol in zip(basis_vector, var_symbols):
             pi_term *= var_symbol ** exponent
 
         pi_terms.append(sp.simplify(pi_term))
 
+    # Print the dimensionless numbers
     print('Dimensionless Numbers:')
     for i, pi_term in enumerate(pi_terms, 1):
         sp.pprint(sp.Eq(sp.symbols(f'Pi_{i}'), pi_term))
