@@ -95,4 +95,4 @@ if __name__ == '__main__':
     }  							# 'name': [M, L, T]
 
     # Perform the pi theorem
-    dimensionless_numbers = apply_pi_theorem(variables)
+    apply_pi_theorem(variables)

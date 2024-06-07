@@ -32,7 +32,7 @@ variables: dict = {
     'w': [0, 1, -1],  		# Velocity w [L T^-1]
 }  				# 'name': [M, L, T]
 
-dimensionless_numbers = apply_pi_theorem(variables)
+apply_pi_theorem(variables)
 ```
 
 ## Author
