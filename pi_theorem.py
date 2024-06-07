@@ -80,7 +80,7 @@ def apply_pi_theorem(variables: dict) -> list[sp.Expr]:
 
     print('Dimensionless Numbers:')
     for i, pi_term in enumerate(pi_terms, 1):
-        sp.pprint(sp.Eq(sp.symbols(f'π_{i}'), pi_term))
+        sp.pprint(sp.Eq(sp.symbols(f'Pi_{i}'), pi_term))
 
 
 if __name__ == '__main__':
