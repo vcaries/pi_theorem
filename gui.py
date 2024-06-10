@@ -78,7 +78,7 @@ class PiTheoremApp(QMainWindow):
 
         # Create the table to display the variables
         self.table = QTableWidget(0, 5)  # Table with 4 columns
-        self.table.setHorizontalHeaderLabels(['Variable', 'M', 'L', 'T', 'Actions'])  # Set the column headers
+        self.table.setHorizontalHeaderLabels(['Variable', 'Mass (M)', 'Length (L)', 'Time (T)', 'Actions'])  # Set the column headers
         main_layout.addWidget(self.table)  # Add the table to the main layout
 
         # Center the labels of the table
