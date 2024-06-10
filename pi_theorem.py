@@ -31,11 +31,15 @@
 import sympy as sp
 
 
-def apply_pi_theorem(variables: dict) -> None:
+def apply_pi_theorem(variables: dict, output: bool = False) -> None | list[sp.Expr]:
     """
         Apply the Pi theorem to the given variables and their dimensions and print the dimensionless numbers.
         :param variables: Dictionary of variable names and their dimensions. Each dimension is a list of integers representing the base dimensions (e.g., [M, L, T]).
         :type variables: dict[str, list[int]]
+        :param output: Whether to return the dimensionless numbers instead of printing them. Default is False.
+        :type output: bool
+        :return: None if output is False, otherwise a list of dimensionless numbers.
+        :rtype: None | list[sp.Expr]
     """
     # Extract data from the dictionary
     names: list[str] = list(variables.keys())
@@ -71,6 +75,9 @@ def apply_pi_theorem(variables: dict) -> None:
             pi_term *= var_symbol ** exponent
 
         pi_terms.append(sp.simplify(pi_term))
+
+    if output:
+        return pi_terms
 
     # Print the dimensionless numbers
     print('Dimensionless Numbers:')
