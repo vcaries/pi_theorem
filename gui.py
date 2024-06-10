@@ -141,15 +141,19 @@ class PiTheoremApp(QMainWindow):
             self.table.insertRow(row_position)
             item = QTableWidgetItem(var_name)
             item.setTextAlignment(Qt.AlignCenter)
+            item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make item non-editable
             self.table.setItem(row_position, 0, item)
             item = QTableWidgetItem(str(var_m))
             item.setTextAlignment(Qt.AlignCenter)
+            item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make item non-editable
             self.table.setItem(row_position, 1, item)
             item = QTableWidgetItem(str(var_l))
             item.setTextAlignment(Qt.AlignCenter)
+            item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make item non-editable
             self.table.setItem(row_position, 2, item)
             item = QTableWidgetItem(str(var_t))
             item.setTextAlignment(Qt.AlignCenter)
+            item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make item non-editable
             self.table.setItem(row_position, 3, item)
 
             # Add a delete button to the table
