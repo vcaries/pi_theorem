@@ -12,6 +12,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QTextEdit, QMessageBox, QHeaderView
 from PyQt5.QtCore import Qt
+from functools import partial
 from pi_theorem import apply_pi_theorem
 
 
@@ -73,15 +74,16 @@ class PiTheoremApp(QMainWindow):
         central_widget.setLayout(main_layout)
 
         # Create the table to display the variables
-        self.table = QTableWidget(0, 4)  # Table with 4 columns
-        self.table.setHorizontalHeaderLabels(['Variable', 'M', 'L', 'T'])  # Set the column headers
+        self.table = QTableWidget(0, 5)  # Table with 4 columns
+        self.table.setHorizontalHeaderLabels(['Variable', 'M', 'L', 'T', 'Actions'])  # Set the column headers
         main_layout.addWidget(self.table)  # Add the table to the main layout
 
         # Center the labels of the table
         header = self.table.horizontalHeader()
-        for i in range(self.table.columnCount()):
+        for i in range(self.table.columnCount() - 1):
             header.setSectionResizeMode(i, QHeaderView.Stretch)
             header.setDefaultAlignment(Qt.AlignCenter)
+        header.setSectionResizeMode(self.table.columnCount() - 1, QHeaderView.ResizeToContents)
 
         # Create the input fields for adding variables
         add_layout = QHBoxLayout()
@@ -107,11 +109,6 @@ class PiTheoremApp(QMainWindow):
         self.add_button = QPushButton('Add Variable')
         self.add_button.clicked.connect(self.add_variable)
         add_layout.addWidget(self.add_button)
-
-        # Create the 'Calculate Pi Terms' button
-        self.calculate_button = QPushButton('Calculate Pi Terms')
-        self.calculate_button.clicked.connect(self.calculate_pi_terms)
-        main_layout.addWidget(self.calculate_button)
 
         # Create the label and text area for the result
         self.result_label = QLabel('Dimensionless Numbers:')
@@ -155,6 +152,11 @@ class PiTheoremApp(QMainWindow):
             item.setTextAlignment(Qt.AlignCenter)
             self.table.setItem(row_position, 3, item)
 
+            # Add a delete button to the table
+            delete_button = QPushButton("Delete")
+            delete_button.clicked.connect(partial(self.delete_variable, row_position))
+            self.table.setCellWidget(row_position, 4, delete_button)
+
             # Clear the input fields
             self.var_name.clear()
             self.var_m.clear()
@@ -163,6 +165,29 @@ class PiTheoremApp(QMainWindow):
 
         else:
             QMessageBox.critical(self, 'Input Error', 'Invalid variable name or variable already exists')
+
+        # Run the calculation
+        self.calculate_pi_terms()
+
+    def delete_variable(self, row: int) -> None:
+        """
+            Deletes a variable from the table and the internal dictionary."
+        """
+        var_name_item = self.table.item(row, 0)
+        if var_name_item is not None:
+            # Remove the variable from the dictionary
+            var_name = var_name_item.text()
+            del self.variables[var_name]
+            self.table.removeRow(row)
+
+            # Update the row indices of delete buttons
+            for i in range(row, self.table.rowCount()):
+                button = self.table.cellWidget(i, 4)
+                button.clicked.disconnect()
+                button.clicked.connect(partial(self.delete_variable, i))
+
+        # Run the calculation
+        self.calculate_pi_terms()
 
     def calculate_pi_terms(self) -> None:
         """
@@ -174,6 +199,11 @@ class PiTheoremApp(QMainWindow):
 
             # Clear the text area
             self.result_text.clear()
+
+            # Check if there are dimensionless numbers
+            if not pi_terms:
+                self.result_text.append('<div style="text-align: center;">No dimensionless numbers found. Please add more variables.</div>')
+                return
 
             # Display the dimensionless numbers
             for i, pi_term in enumerate(pi_terms, 1):
