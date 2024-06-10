@@ -12,7 +12,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QTextEdit, QMessageBox, QHeaderView
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QClipboard
+import sympy as sp
 from functools import partial
 from pi_theorem import apply_pi_theorem
 
@@ -38,6 +38,7 @@ class PiTheoremApp(QMainWindow):
             calculate_button (QPushButton): A button to calculate the Pi terms.
             result_label (QLabel): A label for the result.
             result_text (QTextEdit): A text area to display the dimensionless numbers.
+            result_text_clipboard (QTextEdit): A text area to copy the dimensionless numbers to the clipboard.
         """
     def __init__(self):
         """
@@ -57,6 +58,7 @@ class PiTheoremApp(QMainWindow):
         self.calculate_button: QPushButton = None
         self.result_label: QLabel = None
         self.result_text: QTextEdit = None
+        self.result_text_clipboard: QTextEdit = None
 
         # Initialize the user interface
         self.init_UI()
@@ -116,6 +118,7 @@ class PiTheoremApp(QMainWindow):
         main_layout.addWidget(self.result_label)
         self.result_text = QTextEdit()
         main_layout.addWidget(self.result_text)
+        self.result_text_clipboard = QTextEdit()
 
         # Create the copy button
         self.copy_button = QPushButton("Copy to Clipboard")
@@ -204,7 +207,7 @@ class PiTheoremApp(QMainWindow):
             Copy the dimensionless numbers to the clipboard.
         """
         clipboard = QApplication.clipboard()
-        clipboard.setText(self.result_text.toPlainText())
+        clipboard.setText(self.result_text_clipboard.toPlainText())
 
     def calculate_pi_terms(self) -> None:
         """
@@ -224,8 +227,14 @@ class PiTheoremApp(QMainWindow):
 
             # Display the dimensionless numbers
             for i, pi_term in enumerate(pi_terms, 1):
-                centered_text = f'<div style="text-align: center;"><pre>Pi_{i} = {pi_term}</pre></div>'  # Center the text
+                # Pretty print the equation
+                pretty_pi_term = sp.pretty(sp.Eq(sp.symbols(f'Pi_{i}'), pi_term), use_unicode=True)
+                # Center the text
+                centered_text = f'<div style="text-align: center;"><pre>{pretty_pi_term}</pre></div>'
+                # Append the text to the result
                 self.result_text.append(centered_text)
+                # Set the text to the clipboard text area
+                self.result_text_clipboard.append(f'Pi_{i} = {pi_term}\n')
 
         except ValueError as e:
             QMessageBox.critical(self, 'Calculation Error', str(e))
