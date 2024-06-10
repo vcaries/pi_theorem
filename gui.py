@@ -12,6 +12,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QTextEdit, QMessageBox, QHeaderView
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QClipboard
 from functools import partial
 from pi_theorem import apply_pi_theorem
 
@@ -116,6 +117,11 @@ class PiTheoremApp(QMainWindow):
         self.result_text = QTextEdit()
         main_layout.addWidget(self.result_text)
 
+        # Create the copy button
+        self.copy_button = QPushButton("Copy to Clipboard")
+        self.copy_button.clicked.connect(self.copy_to_clipboard)
+        main_layout.addWidget(self.copy_button)
+
     def add_variable(self) -> None:
         """
             Add a variable to the table of variables.
@@ -192,6 +198,13 @@ class PiTheoremApp(QMainWindow):
 
         # Run the calculation
         self.calculate_pi_terms()
+
+    def copy_to_clipboard(self) -> None:
+        """
+            Copy the dimensionless numbers to the clipboard.
+        """
+        clipboard = QApplication.clipboard()
+        clipboard.setText(self.result_text.toPlainText())
 
     def calculate_pi_terms(self) -> None:
         """
