@@ -1,0 +1,82 @@
+# Preset variables for the Pi Theorem Calculator with their corresponding dimensions
+# Each variable is associated with its dimensions in terms of Mass (M), Length (L), and Time (T)
+
+Vx:             # Axial velocity
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - -1          # Time (T)
+
+mdot:           # Mass flow rate
+  - 1           # Mass (M)
+  - 0           # Length (L)
+  - -1          # Time (T)
+
+tau:            # Tip clearance size
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - 0           # Time (T)
+
+c:              # Chord length
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - 0           # Time (T)
+
+s:              # Blade pitch
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - 0           # Time (T)
+
+Gamma:          # Circulation
+  - 0           # Mass (M)
+  - 2           # Length (L)
+  - -1          # Time (T)
+
+dt:             # Time interval
+  - 0           # Mass (M)
+  - 0           # Length (L)
+  - 1           # Time (T)
+
+DeltaP:         # Pressure difference
+  - 1           # Mass (M)
+  - -1          # Length (L)
+  - -2          # Time (T)
+
+mu:             # Dynamic viscosity
+  - 1           # Mass (M)
+  - -1          # Length (L)
+  - -1          # Time (T)
+
+nu:             # Kinematic viscosity
+  - 0           # Mass (M)
+  - 2           # Length (L)
+  - -1          # Time (T)
+
+rho:            # Density
+  - 1           # Mass (M)
+  - -3          # Length (L)
+  - 0           # Time (T)
+
+velocity:       # Velocity
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - -1          # Time (T)
+
+acceleration:   # Acceleration
+  - 0           # Mass (M)
+  - 1           # Length (L)
+  - -2          # Time (T)
+
+force:          # Force
+  - 1           # Mass (M)
+  - 1           # Length (L)
+  - -2          # Time (T)
+
+pressure:       # Pressure
+  - 1           # Mass (M)
+  - -1          # Length (L)
+  - -2          # Time (T)
+
+energy:         # Energy
+  - 1           # Mass (M)
+  - 2           # Length (L)
+  - -2          # Time (T)

@@ -10,7 +10,7 @@
 
 # Import necessary packages
 import sys
-import json
+import yaml
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
                              QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem,
                              QTextEdit, QMessageBox, QHeaderView, QComboBox)
@@ -72,11 +72,11 @@ class PiTheoremApp(QMainWindow):
 
     def load_preset_variables(self):
         """
-            Load preset variables from a JSON file.
+            Load preset variables from a YAML file.
         """
         try:
-            with open('preset_variables.json', 'r') as file:
-                return json.load(file)
+            with open('preset_variables.yaml', 'r') as file:
+                return yaml.safe_load(file)
 
         except FileNotFoundError:
             return {}
