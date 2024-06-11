@@ -1,7 +1,7 @@
 # Preset variables for the Pi Theorem Calculator with their corresponding dimensions
 # Each variable is associated with its dimensions in terms of Mass (M), Length (L), and Time (T)
 
-Vx:             # Axial velocity
+V_x:             # Axial velocity
   - 0           # Mass (M)
   - 1           # Length (L)
   - -1          # Time (T)
@@ -56,27 +56,22 @@ rho:            # Density
   - -3          # Length (L)
   - 0           # Time (T)
 
-velocity:       # Velocity
+Omega:          # Angular velocity
   - 0           # Mass (M)
-  - 1           # Length (L)
+  - 0           # Length (L)
   - -1          # Time (T)
 
-acceleration:   # Acceleration
+a:              # Acceleration
   - 0           # Mass (M)
   - 1           # Length (L)
   - -2          # Time (T)
 
-force:          # Force
+f:              # Force
   - 1           # Mass (M)
   - 1           # Length (L)
   - -2          # Time (T)
 
-pressure:       # Pressure
-  - 1           # Mass (M)
-  - -1          # Length (L)
-  - -2          # Time (T)
-
-energy:         # Energy
+e:              # Energy
   - 1           # Mass (M)
   - 2           # Length (L)
   - -2          # Time (T)
