@@ -10,7 +10,10 @@
 
 # Import necessary packages
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QTextEdit, QMessageBox, QHeaderView
+import json
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget,
+                             QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem,
+                             QTextEdit, QMessageBox, QHeaderView, QComboBox)
 from PyQt5.QtCore import Qt
 import sympy as sp
 from functools import partial
@@ -39,6 +42,8 @@ class PiTheoremApp(QMainWindow):
             result_label (QLabel): A label for the result.
             result_text (QTextEdit): A text area to display the dimensionless numbers.
             result_text_clipboard (QTextEdit): A text area to copy the dimensionless numbers to the clipboard.
+            preset_combobox (QComboBox): A combo box to select preset variables.
+            preset_variables (dict): A dictionary of preset variables and their dimensions.
         """
     def __init__(self):
         """
@@ -59,9 +64,22 @@ class PiTheoremApp(QMainWindow):
         self.result_label: QLabel = None
         self.result_text: QTextEdit = None
         self.result_text_clipboard: QTextEdit = None
+        self.preset_combobox: QComboBox = None
+        self.preset_variables = self.load_preset_variables()
 
         # Initialize the user interface
         self.init_UI()
+
+    def load_preset_variables(self):
+        """
+            Load preset variables from a JSON file.
+        """
+        try:
+            with open('preset_variables.json', 'r') as file:
+                return json.load(file)
+
+        except FileNotFoundError:
+            return {}
 
     def init_UI(self) -> None:
         """
@@ -91,6 +109,13 @@ class PiTheoremApp(QMainWindow):
         # Create the input fields for adding variables
         add_layout = QHBoxLayout()
         main_layout.addLayout(add_layout)
+
+        # Add the preset variable combobox
+        self.preset_combobox = QComboBox()
+        self.preset_combobox.addItem('Select preset variable')
+        self.preset_combobox.addItems(self.preset_variables.keys())
+        self.preset_combobox.currentIndexChanged.connect(self.select_preset_variable)
+        add_layout.addWidget(self.preset_combobox)
 
         # Add the input fields and the 'Add Variable' button
         add_layout.addWidget(QLabel('Variable'))
@@ -124,6 +149,18 @@ class PiTheoremApp(QMainWindow):
         self.copy_button = QPushButton("Copy to Clipboard")
         self.copy_button.clicked.connect(self.copy_to_clipboard)
         main_layout.addWidget(self.copy_button)
+
+    def select_preset_variable(self):
+        """
+            Populate the variable fields with the selected preset variable.
+        """
+        preset_name = self.preset_combobox.currentText()
+        if preset_name in self.preset_variables:
+            var_dimensions = self.preset_variables[preset_name]
+            self.var_name.setText(preset_name)
+            self.var_m.setText(str(var_dimensions[0]))
+            self.var_l.setText(str(var_dimensions[1]))
+            self.var_t.setText(str(var_dimensions[2]))
 
     def add_variable(self) -> None:
         """
@@ -175,6 +212,7 @@ class PiTheoremApp(QMainWindow):
             self.var_m.clear()
             self.var_l.clear()
             self.var_t.clear()
+            self.preset_combobox.setCurrentIndex(0)
 
         else:
             QMessageBox.critical(self, 'Input Error', 'Invalid variable name or variable already exists')
