@@ -15,6 +15,7 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout
                              QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem,
                              QTextEdit, QMessageBox, QHeaderView, QComboBox)
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPalette, QColor
 import sympy as sp
 from functools import partial
 from pi_theorem import apply_pi_theorem
@@ -44,6 +45,7 @@ class PiTheoremApp(QMainWindow):
             result_text_clipboard (QTextEdit): A text area to copy the dimensionless numbers to the clipboard.
             preset_combobox (QComboBox): A combo box to select preset variables.
             preset_variables (dict): A dictionary of preset variables and their dimensions.
+            copy_button (QPushButton): A button to copy the dimensionless numbers to the clipboard.
         """
     def __init__(self):
         """
@@ -66,6 +68,7 @@ class PiTheoremApp(QMainWindow):
         self.result_text_clipboard: QTextEdit = None
         self.preset_combobox: QComboBox = None
         self.preset_variables = self.load_preset_variables()
+        self.copy_button: QPushButton = None
 
         # Initialize the user interface
         self.init_UI()
@@ -86,7 +89,10 @@ class PiTheoremApp(QMainWindow):
             Initialize the user interface of the application.
         """
         self.setWindowTitle('Pi Theorem Calculator')  # Set the window title
-        self.setGeometry(100, 100, 600, 400)  # Set a default size for the window (x, y, width, height)
+        self.setGeometry(100, 100, 800, 500)  # Set a default size for the window (x, y, width, height)
+
+        # Set the style of the window
+        self.set_style()
 
         # Create the central widget and the main layout
         central_widget = QWidget()
@@ -149,6 +155,70 @@ class PiTheoremApp(QMainWindow):
         self.copy_button = QPushButton("Copy to Clipboard")
         self.copy_button.clicked.connect(self.copy_to_clipboard)
         main_layout.addWidget(self.copy_button)
+
+    def set_style(self):
+        """
+            Set the style of the window.
+        """
+        # Set the stylesheet for the application
+        self.setStyleSheet("""
+            QWidget {
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+                font-size: 14px;
+                background-color: #f7f8fa;
+                color: #2c3e50;
+            }
+            QTableWidget {
+                background-color: #ffffff;
+                alternate-background-color: #f4f6f9;
+                gridline-color: #dcdfe4;
+                border: 1px solid #dcdfe4;
+                border-radius: 6px;
+            }
+            QHeaderView::section {
+                background-color: #34495e;
+                color: #ecf0f1;
+                padding: 8px;
+                border: none;
+                border-radius: 6px;
+                margin: 1px;
+            }
+            QLineEdit, QComboBox, QTextEdit {
+                padding: 8px;
+                border: 1px solid #dcdfe4;
+                border-radius: 6px;
+                background-color: #ffffff;
+                color: #2c3e50;
+            }
+            QPushButton {
+                background-color: #3498db;
+                color: #ffffff;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 6px;
+            }
+            QPushButton:hover {
+                background-color: #2980b9;
+            }
+            QPushButton:pressed {
+                background-color: #1c6ea4;
+            }
+        """)
+
+        # Set the palette for the application
+        palette = QPalette()
+        palette.setColor(QPalette.Window, QColor("#f7f8fa"))
+        palette.setColor(QPalette.WindowText, QColor("#2c3e50"))
+        palette.setColor(QPalette.Base, QColor("#ffffff"))
+        palette.setColor(QPalette.AlternateBase, QColor("#f4f6f9"))
+        palette.setColor(QPalette.ToolTipBase, QColor("#ffffff"))
+        palette.setColor(QPalette.ToolTipText, QColor("#2c3e50"))
+        palette.setColor(QPalette.Text, QColor("#2c3e50"))
+        palette.setColor(QPalette.Button, QColor("#3498db"))
+        palette.setColor(QPalette.ButtonText, QColor("#ffffff"))
+        palette.setColor(QPalette.Highlight, QColor("#2980b9"))
+        palette.setColor(QPalette.HighlightedText, QColor("#ffffff"))
+        self.setPalette(palette)
 
     def select_preset_variable(self):
         """
