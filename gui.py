@@ -147,7 +147,7 @@ class PiTheoremApp(QMainWindow):
         # Create the label and text area for the result
         self.result_label = QLabel('Dimensionless Numbers:')
         main_layout.addWidget(self.result_label)
-        self.result_text = QTextEdit()
+        self.result_text = QTextEdit('<div style="text-align: center;">No dimensionless numbers found. Please add more variables.</div>')
         main_layout.addWidget(self.result_text)
         self.result_text_clipboard = QTextEdit()
 
