@@ -232,6 +232,9 @@ class PiTheoremApp(QMainWindow):
             self.var_l.setText(str(var_dimensions[1]))
             self.var_t.setText(str(var_dimensions[2]))
 
+            # Add the variable to the table
+            self.add_variable()
+
     def add_variable(self) -> None:
         """
             Add a variable to the table of variables.
