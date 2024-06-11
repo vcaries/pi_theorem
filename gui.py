@@ -327,6 +327,7 @@ class PiTheoremApp(QMainWindow):
 
             # Clear the text area
             self.result_text.clear()
+            self.result_text_clipboard.clear()
 
             # Check if there are dimensionless numbers
             if not pi_terms:
@@ -343,6 +344,20 @@ class PiTheoremApp(QMainWindow):
                 self.result_text.append(centered_text)
                 # Set the text to the clipboard text area
                 self.result_text_clipboard.append(f'Pi_{i} = {pi_term}\n')
+
+            # Display the product of all dimensionless numbers
+            if len(pi_terms) > 1:
+                product_of_pi_terms = sp.simplify(sp.prod(pi_terms))
+                # Left hand side of the equation (product of Pi terms)
+                lhs = [sp.symbols(f'Pi_{i}') for i in range(1, len(pi_terms) + 1)]
+                # Pretty print the equation
+                pretty_product_of_pi_terms = sp.pretty(sp.Eq(sp.Mul(*lhs), product_of_pi_terms), use_unicode=True)
+                # Center the text
+                centered_text = f'<div style="text-align: center;"><pre>{pretty_product_of_pi_terms}</pre></div>'
+                # Append the text to the result
+                self.result_text.append(centered_text)
+                # Set the text to the clipboard text area
+                self.result_text_clipboard.append(f'{sp.Mul(*lhs)} = {product_of_pi_terms}\n')
 
         except ValueError as e:
             QMessageBox.critical(self, 'Calculation Error', str(e))
