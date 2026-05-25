@@ -10,6 +10,10 @@ import { defineConfig } from "vite";
  *   so the frontend and backend can run on different ports without CORS pain.
  */
 export default defineConfig({
+  // Base public path. Defaults to "/" for local dev and the FastAPI-backed
+  // build; the GitHub Pages workflow sets VITE_BASE=/pi_theorem/ so assets and
+  // data resolve under the project-page sub-path.
+  base: process.env.VITE_BASE || "/",
   plugins: [react()],
   resolve: {
     alias: {

@@ -57,6 +57,9 @@
     "generic": "Une erreur est survenue.",
     "network": "Impossible de joindre l'API. Le backend tourne-t-il sur le port 8000 ?"
   },
+  "engine": {
+    "preparing": "Initialisation du moteur scientifique (Python + SymPy via WebAssembly)… le premier calcul peut prendre quelques secondes."
+  },
   "footer": {
     "builtBy": "Réalisé par V. Caries",
     "engine": "Propulsé par FastAPI + SymPy"

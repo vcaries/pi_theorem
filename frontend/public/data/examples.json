@@ -1,0 +1,315 @@
+[
+  {
+    "id": "chen_1990",
+    "title_en": "Compressor tip-clearance vortex (Chen, 1990)",
+    "title_fr": "Tourbillon de jeu en sommet d'aube (Chen, 1990)",
+    "description_en": "Dimensional analysis of the tip-clearance flow structure in an axial compressor. Eleven dimensioned quantities reduce to eight independent dimensionless groups, reproducing the similarity parameters of the paper.",
+    "description_fr": "Analyse dimensionnelle de la structure d'écoulement de jeu en sommet d'aube dans un compresseur axial. Onze grandeurs dimensionnées se réduisent à huit groupes adimensionnels indépendants, reproduisant les paramètres de similitude de l'article.",
+    "reference": "Chen, G.T.; Greitzer, E.M.; Tan, C.S.; Marble, F.E. Similarity Analysis of Compressor Tip Clearance Flow Structure (1990).",
+    "variables": [
+      {
+        "symbol": "tau",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "\\tau",
+        "name": "Tip gap size"
+      },
+      {
+        "symbol": "rho",
+        "exponents": [
+          1.0,
+          -3.0,
+          0.0
+        ],
+        "latex": "\\rho",
+        "name": "Density"
+      },
+      {
+        "symbol": "dt",
+        "exponents": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "latex": "\\delta t",
+        "name": "Time step"
+      },
+      {
+        "symbol": "DeltaP",
+        "exponents": [
+          1.0,
+          -1.0,
+          -2.0
+        ],
+        "latex": "\\Delta p",
+        "name": "Pressure difference"
+      },
+      {
+        "symbol": "Gamma",
+        "exponents": [
+          0.0,
+          2.0,
+          -1.0
+        ],
+        "latex": "\\Gamma",
+        "name": "Circulation"
+      },
+      {
+        "symbol": "y_v",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "y_v",
+        "name": "Vortex y-coordinate"
+      },
+      {
+        "symbol": "z_v",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "z_v",
+        "name": "Vortex z-coordinate"
+      },
+      {
+        "symbol": "y_c",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "y_c",
+        "name": "Vortex core y-coordinate"
+      },
+      {
+        "symbol": "z_c",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "z_c",
+        "name": "Vortex core z-coordinate"
+      },
+      {
+        "symbol": "v",
+        "exponents": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "latex": "v",
+        "name": "Velocity v"
+      },
+      {
+        "symbol": "w",
+        "exponents": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "latex": "w",
+        "name": "Velocity w"
+      }
+    ]
+  },
+  {
+    "id": "pipe_flow_reynolds",
+    "title_en": "Pipe flow: the Reynolds number",
+    "title_fr": "Écoulement en conduite : le nombre de Reynolds",
+    "description_en": "Four quantities governing internal flow collapse to a single dimensionless group, the Reynolds number Re = rho V D / mu.",
+    "description_fr": "Quatre grandeurs gouvernant un écoulement interne se réduisent à un unique groupe adimensionnel, le nombre de Reynolds Re = rho V D / mu.",
+    "reference": "Classic textbook example (Buckingham, 1914).",
+    "variables": [
+      {
+        "symbol": "rho",
+        "exponents": [
+          1.0,
+          -3.0,
+          0.0
+        ],
+        "latex": "\\rho",
+        "name": "Density"
+      },
+      {
+        "symbol": "V",
+        "exponents": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "latex": "V",
+        "name": "Velocity"
+      },
+      {
+        "symbol": "D",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "D",
+        "name": "Diameter"
+      },
+      {
+        "symbol": "mu",
+        "exponents": [
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "latex": "\\mu",
+        "name": "Dynamic viscosity"
+      }
+    ]
+  },
+  {
+    "id": "drag_sphere",
+    "title_en": "Drag on a sphere",
+    "title_fr": "Traînée d'une sphère",
+    "description_en": "The drag force on a sphere in a viscous flow yields two groups: a drag coefficient and the Reynolds number.",
+    "description_fr": "La force de traînée sur une sphère dans un écoulement visqueux donne deux groupes : un coefficient de traînée et le nombre de Reynolds.",
+    "reference": "Classic textbook example.",
+    "variables": [
+      {
+        "symbol": "F",
+        "exponents": [
+          1.0,
+          1.0,
+          -2.0
+        ],
+        "latex": "F",
+        "name": "Drag force"
+      },
+      {
+        "symbol": "rho",
+        "exponents": [
+          1.0,
+          -3.0,
+          0.0
+        ],
+        "latex": "\\rho",
+        "name": "Density"
+      },
+      {
+        "symbol": "V",
+        "exponents": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "latex": "V",
+        "name": "Velocity"
+      },
+      {
+        "symbol": "D",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "D",
+        "name": "Diameter"
+      },
+      {
+        "symbol": "mu",
+        "exponents": [
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "latex": "\\mu",
+        "name": "Dynamic viscosity"
+      }
+    ]
+  },
+  {
+    "id": "forced_convection",
+    "title_en": "Forced convection (Nusselt correlation)",
+    "title_fr": "Convection forcée (corrélation de Nusselt)",
+    "description_en": "Heat transfer in forced convection reduces to the Nusselt, Reynolds and Prandtl numbers — the basis of correlations such as Dittus–Boelter.",
+    "description_fr": "Le transfert thermique en convection forcée se réduit aux nombres de Nusselt, Reynolds et Prandtl — base de corrélations comme Dittus–Boelter.",
+    "reference": "Classic heat-transfer example.",
+    "variables": [
+      {
+        "symbol": "h",
+        "exponents": [
+          1.0,
+          0.0,
+          -3.0,
+          -1.0
+        ],
+        "latex": "h",
+        "name": "Heat transfer coefficient"
+      },
+      {
+        "symbol": "L",
+        "exponents": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "latex": "L",
+        "name": "Length"
+      },
+      {
+        "symbol": "k",
+        "exponents": [
+          1.0,
+          1.0,
+          -3.0,
+          -1.0
+        ],
+        "latex": "k",
+        "name": "Thermal conductivity"
+      },
+      {
+        "symbol": "rho",
+        "exponents": [
+          1.0,
+          -3.0,
+          0.0
+        ],
+        "latex": "\\rho",
+        "name": "Density"
+      },
+      {
+        "symbol": "V",
+        "exponents": [
+          0.0,
+          1.0,
+          -1.0
+        ],
+        "latex": "V",
+        "name": "Velocity"
+      },
+      {
+        "symbol": "mu",
+        "exponents": [
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "latex": "\\mu",
+        "name": "Dynamic viscosity"
+      },
+      {
+        "symbol": "cp",
+        "exponents": [
+          0.0,
+          2.0,
+          -2.0,
+          -1.0
+        ],
+        "latex": "c_p",
+        "name": "Specific heat"
+      }
+    ]
+  }
+]

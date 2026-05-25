@@ -7,7 +7,7 @@
  */
 import { create } from "zustand";
 
-import { ApiError, fetchExamples, fetchLibrary, solvePiGroups } from "@/api/client";
+import { ApiError, engine } from "@/api/engine";
 import { NB_BASE_DIMENSIONS } from "@/types";
 import type {
   LibraryResponse,
@@ -37,6 +37,8 @@ interface AppState {
   result: PiResultOut | null;
   loading: boolean;
   error: string | null;
+  /** True while the (Pyodide) engine is downloading/booting in the background. */
+  enginePreparing: boolean;
 
   loadInitialData: () => Promise<void>;
   addVariable: (draft: Omit<VariableDraft, "id">) => boolean;
@@ -55,13 +57,29 @@ export const useAppStore = create<AppState>((set, get) => ({
   result: null,
   loading: false,
   error: null,
+  enginePreparing: false,
 
   loadInitialData: async () => {
     try {
-      const [library, examples] = await Promise.all([fetchLibrary(), fetchExamples()]);
+      const [library, examples] = await Promise.all([
+        engine.fetchLibrary(),
+        engine.fetchExamples(),
+      ]);
       set({ library, examples });
     } catch (error) {
       set({ error: resolveError(error) });
+    }
+    // Warm up the engine (e.g. download + boot Pyodide) in the background so the
+    // first computation feels instant and the UI can show a clear status.
+    if (engine.prepare) {
+      set({ enginePreparing: true });
+      try {
+        await engine.prepare();
+      } catch (error) {
+        set({ error: resolveError(error) });
+      } finally {
+        set({ enginePreparing: false });
+      }
     }
   },
 
@@ -126,7 +144,7 @@ export const useAppStore = create<AppState>((set, get) => ({
         latex: v.latex,
         name: v.name,
       }));
-      const result = await solvePiGroups(payload);
+      const result = await engine.solvePiGroups(payload);
       set({ result, loading: false });
     } catch (error) {
       set({ error: resolveError(error), loading: false, result: null });
