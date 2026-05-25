@@ -5,7 +5,10 @@
   "type": "module",
   "description": "Modern web UI for the Pi-Scope Buckingham Pi theorem calculator.",
   "scripts": {
+    "sync:core": "node scripts/sync-pyodide-core.mjs",
+    "predev": "node scripts/sync-pyodide-core.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/sync-pyodide-core.mjs",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",

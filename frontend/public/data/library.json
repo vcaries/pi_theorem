@@ -1,0 +1,1238 @@
+{
+  "base_dimensions": [
+    {
+      "symbol": "M",
+      "name": "mass",
+      "si_unit": "kg",
+      "label_en": "Mass",
+      "label_fr": "Masse"
+    },
+    {
+      "symbol": "L",
+      "name": "length",
+      "si_unit": "m",
+      "label_en": "Length",
+      "label_fr": "Longueur"
+    },
+    {
+      "symbol": "T",
+      "name": "time",
+      "si_unit": "s",
+      "label_en": "Time",
+      "label_fr": "Temps"
+    },
+    {
+      "symbol": "Θ",
+      "name": "temperature",
+      "si_unit": "K",
+      "label_en": "Temperature",
+      "label_fr": "Température"
+    },
+    {
+      "symbol": "I",
+      "name": "electric_current",
+      "si_unit": "A",
+      "label_en": "Electric current",
+      "label_fr": "Courant électrique"
+    },
+    {
+      "symbol": "N",
+      "name": "amount_of_substance",
+      "si_unit": "mol",
+      "label_en": "Amount of substance",
+      "label_fr": "Quantité de matière"
+    },
+    {
+      "symbol": "J",
+      "name": "luminous_intensity",
+      "si_unit": "cd",
+      "label_en": "Luminous intensity",
+      "label_fr": "Intensité lumineuse"
+    }
+  ],
+  "categories": [
+    {
+      "id": "mechanics",
+      "name_en": "Mechanics",
+      "name_fr": "Mécanique",
+      "variables": [
+        {
+          "symbol": "m",
+          "name_en": "Mass",
+          "name_fr": "Masse",
+          "si_unit": "kg",
+          "exponents": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "latex": "m",
+          "description_en": "Inertial mass of a body.",
+          "description_fr": "Masse inertielle d'un corps."
+        },
+        {
+          "symbol": "L",
+          "name_en": "Length",
+          "name_fr": "Longueur",
+          "si_unit": "m",
+          "exponents": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "latex": "L",
+          "description_en": "Characteristic length.",
+          "description_fr": "Longueur caractéristique."
+        },
+        {
+          "symbol": "t",
+          "name_en": "Time",
+          "name_fr": "Temps",
+          "si_unit": "s",
+          "exponents": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "t",
+          "description_en": "Elapsed time.",
+          "description_fr": "Temps écoulé."
+        },
+        {
+          "symbol": "v",
+          "name_en": "Velocity",
+          "name_fr": "Vitesse",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "v",
+          "description_en": "Linear velocity.",
+          "description_fr": "Vitesse linéaire."
+        },
+        {
+          "symbol": "a",
+          "name_en": "Acceleration",
+          "name_fr": "Accélération",
+          "si_unit": "m/s^2",
+          "exponents": [
+            0.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "a",
+          "description_en": "Linear acceleration.",
+          "description_fr": "Accélération linéaire."
+        },
+        {
+          "symbol": "F",
+          "name_en": "Force",
+          "name_fr": "Force",
+          "si_unit": "N",
+          "exponents": [
+            1.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "F",
+          "description_en": "Mechanical force.",
+          "description_fr": "Force mécanique."
+        },
+        {
+          "symbol": "E",
+          "name_en": "Energy",
+          "name_fr": "Énergie",
+          "si_unit": "J",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0
+          ],
+          "latex": "E",
+          "description_en": "Mechanical energy / work.",
+          "description_fr": "Énergie / travail mécanique."
+        },
+        {
+          "symbol": "P",
+          "name_en": "Power",
+          "name_fr": "Puissance",
+          "si_unit": "W",
+          "exponents": [
+            1.0,
+            2.0,
+            -3.0
+          ],
+          "latex": "P",
+          "description_en": "Rate of energy transfer.",
+          "description_fr": "Débit de transfert d'énergie."
+        },
+        {
+          "symbol": "p",
+          "name_en": "Momentum",
+          "name_fr": "Quantité de mouvement",
+          "si_unit": "kg.m/s",
+          "exponents": [
+            1.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "p",
+          "description_en": "Linear momentum.",
+          "description_fr": "Quantité de mouvement linéaire."
+        },
+        {
+          "symbol": "omega",
+          "name_en": "Angular velocity",
+          "name_fr": "Vitesse angulaire",
+          "si_unit": "rad/s",
+          "exponents": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "\\omega",
+          "description_en": "Angular velocity.",
+          "description_fr": "Vitesse angulaire."
+        },
+        {
+          "symbol": "k",
+          "name_en": "Stiffness",
+          "name_fr": "Raideur",
+          "si_unit": "N/m",
+          "exponents": [
+            1.0,
+            0.0,
+            -2.0
+          ],
+          "latex": "k",
+          "description_en": "Spring constant.",
+          "description_fr": "Constante de raideur."
+        },
+        {
+          "symbol": "g",
+          "name_en": "Gravity",
+          "name_fr": "Pesanteur",
+          "si_unit": "m/s^2",
+          "exponents": [
+            0.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "g",
+          "description_en": "Gravitational acceleration.",
+          "description_fr": "Accélération de la pesanteur."
+        }
+      ]
+    },
+    {
+      "id": "fluid_mechanics",
+      "name_en": "Fluid mechanics",
+      "name_fr": "Mécanique des fluides",
+      "variables": [
+        {
+          "symbol": "rho",
+          "name_en": "Density",
+          "name_fr": "Masse volumique",
+          "si_unit": "kg/m^3",
+          "exponents": [
+            1.0,
+            -3.0,
+            0.0
+          ],
+          "latex": "\\rho",
+          "description_en": "Fluid density.",
+          "description_fr": "Masse volumique du fluide."
+        },
+        {
+          "symbol": "mu",
+          "name_en": "Dynamic viscosity",
+          "name_fr": "Viscosité dynamique",
+          "si_unit": "Pa.s",
+          "exponents": [
+            1.0,
+            -1.0,
+            -1.0
+          ],
+          "latex": "\\mu",
+          "description_en": "Dynamic viscosity.",
+          "description_fr": "Viscosité dynamique."
+        },
+        {
+          "symbol": "nu",
+          "name_en": "Kinematic viscosity",
+          "name_fr": "Viscosité cinématique",
+          "si_unit": "m^2/s",
+          "exponents": [
+            0.0,
+            2.0,
+            -1.0
+          ],
+          "latex": "\\nu",
+          "description_en": "Kinematic viscosity (mu/rho).",
+          "description_fr": "Viscosité cinématique (mu/rho)."
+        },
+        {
+          "symbol": "V",
+          "name_en": "Flow velocity",
+          "name_fr": "Vitesse d'écoulement",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "V",
+          "description_en": "Characteristic flow velocity.",
+          "description_fr": "Vitesse caractéristique de l'écoulement."
+        },
+        {
+          "symbol": "D",
+          "name_en": "Diameter",
+          "name_fr": "Diamètre",
+          "si_unit": "m",
+          "exponents": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "latex": "D",
+          "description_en": "Characteristic length / diameter.",
+          "description_fr": "Longueur caractéristique / diamètre."
+        },
+        {
+          "symbol": "dP",
+          "name_en": "Pressure drop",
+          "name_fr": "Différence de pression",
+          "si_unit": "Pa",
+          "exponents": [
+            1.0,
+            -1.0,
+            -2.0
+          ],
+          "latex": "\\Delta p",
+          "description_en": "Pressure difference.",
+          "description_fr": "Différence de pression."
+        },
+        {
+          "symbol": "sigma",
+          "name_en": "Surface tension",
+          "name_fr": "Tension superficielle",
+          "si_unit": "N/m",
+          "exponents": [
+            1.0,
+            0.0,
+            -2.0
+          ],
+          "latex": "\\sigma",
+          "description_en": "Surface tension.",
+          "description_fr": "Tension superficielle."
+        },
+        {
+          "symbol": "g",
+          "name_en": "Gravity",
+          "name_fr": "Pesanteur",
+          "si_unit": "m/s^2",
+          "exponents": [
+            0.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "g",
+          "description_en": "Gravitational acceleration.",
+          "description_fr": "Accélération de la pesanteur."
+        },
+        {
+          "symbol": "Q",
+          "name_en": "Volume flow rate",
+          "name_fr": "Débit volumique",
+          "si_unit": "m^3/s",
+          "exponents": [
+            0.0,
+            3.0,
+            -1.0
+          ],
+          "latex": "Q",
+          "description_en": "Volumetric flow rate.",
+          "description_fr": "Débit volumique."
+        },
+        {
+          "symbol": "mdot",
+          "name_en": "Mass flow rate",
+          "name_fr": "Débit massique",
+          "si_unit": "kg/s",
+          "exponents": [
+            1.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "\\dot{m}",
+          "description_en": "Mass flow rate.",
+          "description_fr": "Débit massique."
+        },
+        {
+          "symbol": "c",
+          "name_en": "Speed of sound",
+          "name_fr": "Vitesse du son",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "c",
+          "description_en": "Speed of sound in the medium.",
+          "description_fr": "Vitesse du son dans le milieu."
+        },
+        {
+          "symbol": "Gamma",
+          "name_en": "Circulation",
+          "name_fr": "Circulation",
+          "si_unit": "m^2/s",
+          "exponents": [
+            0.0,
+            2.0,
+            -1.0
+          ],
+          "latex": "\\Gamma",
+          "description_en": "Velocity circulation.",
+          "description_fr": "Circulation de la vitesse."
+        }
+      ]
+    },
+    {
+      "id": "thermodynamics",
+      "name_en": "Thermodynamics",
+      "name_fr": "Thermodynamique",
+      "variables": [
+        {
+          "symbol": "T",
+          "name_en": "Temperature",
+          "name_fr": "Température",
+          "si_unit": "K",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "T",
+          "description_en": "Absolute temperature.",
+          "description_fr": "Température absolue."
+        },
+        {
+          "symbol": "p",
+          "name_en": "Pressure",
+          "name_fr": "Pression",
+          "si_unit": "Pa",
+          "exponents": [
+            1.0,
+            -1.0,
+            -2.0
+          ],
+          "latex": "p",
+          "description_en": "Thermodynamic pressure.",
+          "description_fr": "Pression thermodynamique."
+        },
+        {
+          "symbol": "Vol",
+          "name_en": "Volume",
+          "name_fr": "Volume",
+          "si_unit": "m^3",
+          "exponents": [
+            0.0,
+            3.0,
+            0.0
+          ],
+          "latex": "V",
+          "description_en": "Volume.",
+          "description_fr": "Volume."
+        },
+        {
+          "symbol": "U",
+          "name_en": "Internal energy",
+          "name_fr": "Énergie interne",
+          "si_unit": "J",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0
+          ],
+          "latex": "U",
+          "description_en": "Internal energy.",
+          "description_fr": "Énergie interne."
+        },
+        {
+          "symbol": "S",
+          "name_en": "Entropy",
+          "name_fr": "Entropie",
+          "si_unit": "J/K",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0,
+            -1.0
+          ],
+          "latex": "S",
+          "description_en": "Entropy.",
+          "description_fr": "Entropie."
+        },
+        {
+          "symbol": "cp",
+          "name_en": "Specific heat",
+          "name_fr": "Chaleur massique",
+          "si_unit": "J/(kg.K)",
+          "exponents": [
+            0.0,
+            2.0,
+            -2.0,
+            -1.0
+          ],
+          "latex": "c_p",
+          "description_en": "Specific heat capacity at constant pressure.",
+          "description_fr": "Capacité thermique massique à pression constante."
+        },
+        {
+          "symbol": "R",
+          "name_en": "Specific gas const.",
+          "name_fr": "Constante massique des gaz",
+          "si_unit": "J/(kg.K)",
+          "exponents": [
+            0.0,
+            2.0,
+            -2.0,
+            -1.0
+          ],
+          "latex": "R",
+          "description_en": "Specific gas constant.",
+          "description_fr": "Constante spécifique des gaz."
+        },
+        {
+          "symbol": "n",
+          "name_en": "Amount of substance",
+          "name_fr": "Quantité de matière",
+          "si_unit": "mol",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "n",
+          "description_en": "Amount of substance.",
+          "description_fr": "Quantité de matière."
+        },
+        {
+          "symbol": "Rm",
+          "name_en": "Molar gas constant",
+          "name_fr": "Constante molaire des gaz",
+          "si_unit": "J/(mol.K)",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0,
+            -1.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "R_m",
+          "description_en": "Universal (molar) gas constant.",
+          "description_fr": "Constante universelle (molaire) des gaz."
+        }
+      ]
+    },
+    {
+      "id": "heat_transfer",
+      "name_en": "Heat transfer",
+      "name_fr": "Transfert thermique",
+      "variables": [
+        {
+          "symbol": "kth",
+          "name_en": "Thermal conductivity",
+          "name_fr": "Conductivité thermique",
+          "si_unit": "W/(m.K)",
+          "exponents": [
+            1.0,
+            1.0,
+            -3.0,
+            -1.0
+          ],
+          "latex": "k",
+          "description_en": "Thermal conductivity.",
+          "description_fr": "Conductivité thermique."
+        },
+        {
+          "symbol": "h",
+          "name_en": "Heat transfer coeff.",
+          "name_fr": "Coefficient d'échange",
+          "si_unit": "W/(m^2.K)",
+          "exponents": [
+            1.0,
+            0.0,
+            -3.0,
+            -1.0
+          ],
+          "latex": "h",
+          "description_en": "Convective heat transfer coefficient.",
+          "description_fr": "Coefficient de convection."
+        },
+        {
+          "symbol": "alpha",
+          "name_en": "Thermal diffusivity",
+          "name_fr": "Diffusivité thermique",
+          "si_unit": "m^2/s",
+          "exponents": [
+            0.0,
+            2.0,
+            -1.0
+          ],
+          "latex": "\\alpha",
+          "description_en": "Thermal diffusivity.",
+          "description_fr": "Diffusivité thermique."
+        },
+        {
+          "symbol": "qpp",
+          "name_en": "Heat flux",
+          "name_fr": "Densité de flux thermique",
+          "si_unit": "W/m^2",
+          "exponents": [
+            1.0,
+            0.0,
+            -3.0
+          ],
+          "latex": "q''",
+          "description_en": "Surface heat flux.",
+          "description_fr": "Densité de flux thermique surfacique."
+        },
+        {
+          "symbol": "dT",
+          "name_en": "Temperature diff.",
+          "name_fr": "Écart de température",
+          "si_unit": "K",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "\\Delta T",
+          "description_en": "Temperature difference.",
+          "description_fr": "Différence de température."
+        },
+        {
+          "symbol": "cp",
+          "name_en": "Specific heat",
+          "name_fr": "Chaleur massique",
+          "si_unit": "J/(kg.K)",
+          "exponents": [
+            0.0,
+            2.0,
+            -2.0,
+            -1.0
+          ],
+          "latex": "c_p",
+          "description_en": "Specific heat capacity.",
+          "description_fr": "Capacité thermique massique."
+        },
+        {
+          "symbol": "rho",
+          "name_en": "Density",
+          "name_fr": "Masse volumique",
+          "si_unit": "kg/m^3",
+          "exponents": [
+            1.0,
+            -3.0,
+            0.0
+          ],
+          "latex": "\\rho",
+          "description_en": "Density.",
+          "description_fr": "Masse volumique."
+        },
+        {
+          "symbol": "beta",
+          "name_en": "Thermal expansion",
+          "name_fr": "Dilatation thermique",
+          "si_unit": "1/K",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "\\beta",
+          "description_en": "Volumetric thermal expansion coefficient.",
+          "description_fr": "Coefficient de dilatation thermique."
+        },
+        {
+          "symbol": "L",
+          "name_en": "Length",
+          "name_fr": "Longueur",
+          "si_unit": "m",
+          "exponents": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "latex": "L",
+          "description_en": "Characteristic length.",
+          "description_fr": "Longueur caractéristique."
+        },
+        {
+          "symbol": "V",
+          "name_en": "Velocity",
+          "name_fr": "Vitesse",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "V",
+          "description_en": "Flow velocity.",
+          "description_fr": "Vitesse d'écoulement."
+        }
+      ]
+    },
+    {
+      "id": "electromagnetism",
+      "name_en": "Electromagnetism",
+      "name_fr": "Électromagnétisme",
+      "variables": [
+        {
+          "symbol": "I",
+          "name_en": "Electric current",
+          "name_fr": "Courant électrique",
+          "si_unit": "A",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "I",
+          "description_en": "Electric current.",
+          "description_fr": "Courant électrique."
+        },
+        {
+          "symbol": "Qe",
+          "name_en": "Electric charge",
+          "name_fr": "Charge électrique",
+          "si_unit": "C",
+          "exponents": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "latex": "Q",
+          "description_en": "Electric charge.",
+          "description_fr": "Charge électrique."
+        },
+        {
+          "symbol": "U",
+          "name_en": "Voltage",
+          "name_fr": "Tension",
+          "si_unit": "V",
+          "exponents": [
+            1.0,
+            2.0,
+            -3.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "U",
+          "description_en": "Electric potential difference.",
+          "description_fr": "Différence de potentiel."
+        },
+        {
+          "symbol": "Res",
+          "name_en": "Resistance",
+          "name_fr": "Résistance",
+          "si_unit": "Ohm",
+          "exponents": [
+            1.0,
+            2.0,
+            -3.0,
+            0.0,
+            -2.0
+          ],
+          "latex": "R",
+          "description_en": "Electrical resistance.",
+          "description_fr": "Résistance électrique."
+        },
+        {
+          "symbol": "Cap",
+          "name_en": "Capacitance",
+          "name_fr": "Capacité",
+          "si_unit": "F",
+          "exponents": [
+            -1.0,
+            -2.0,
+            4.0,
+            0.0,
+            2.0
+          ],
+          "latex": "C",
+          "description_en": "Capacitance.",
+          "description_fr": "Capacité électrique."
+        },
+        {
+          "symbol": "Lind",
+          "name_en": "Inductance",
+          "name_fr": "Inductance",
+          "si_unit": "H",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0,
+            0.0,
+            -2.0
+          ],
+          "latex": "L",
+          "description_en": "Inductance.",
+          "description_fr": "Inductance."
+        },
+        {
+          "symbol": "Efield",
+          "name_en": "Electric field",
+          "name_fr": "Champ électrique",
+          "si_unit": "V/m",
+          "exponents": [
+            1.0,
+            1.0,
+            -3.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "E",
+          "description_en": "Electric field strength.",
+          "description_fr": "Champ électrique."
+        },
+        {
+          "symbol": "B",
+          "name_en": "Magnetic flux density",
+          "name_fr": "Densité de flux magnétique",
+          "si_unit": "T",
+          "exponents": [
+            1.0,
+            0.0,
+            -2.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "B",
+          "description_en": "Magnetic flux density.",
+          "description_fr": "Densité de flux magnétique."
+        },
+        {
+          "symbol": "eps",
+          "name_en": "Permittivity",
+          "name_fr": "Permittivité",
+          "si_unit": "F/m",
+          "exponents": [
+            -1.0,
+            -3.0,
+            4.0,
+            0.0,
+            2.0
+          ],
+          "latex": "\\varepsilon",
+          "description_en": "Electric permittivity.",
+          "description_fr": "Permittivité électrique."
+        },
+        {
+          "symbol": "mu0",
+          "name_en": "Permeability",
+          "name_fr": "Perméabilité",
+          "si_unit": "H/m",
+          "exponents": [
+            1.0,
+            1.0,
+            -2.0,
+            0.0,
+            -2.0
+          ],
+          "latex": "\\mu_0",
+          "description_en": "Magnetic permeability.",
+          "description_fr": "Perméabilité magnétique."
+        },
+        {
+          "symbol": "f",
+          "name_en": "Frequency",
+          "name_fr": "Fréquence",
+          "si_unit": "Hz",
+          "exponents": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "f",
+          "description_en": "Frequency.",
+          "description_fr": "Fréquence."
+        }
+      ]
+    },
+    {
+      "id": "acoustics",
+      "name_en": "Acoustics",
+      "name_fr": "Acoustique",
+      "variables": [
+        {
+          "symbol": "c",
+          "name_en": "Speed of sound",
+          "name_fr": "Célérité du son",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "c",
+          "description_en": "Speed of sound.",
+          "description_fr": "Vitesse du son."
+        },
+        {
+          "symbol": "f",
+          "name_en": "Frequency",
+          "name_fr": "Fréquence",
+          "si_unit": "Hz",
+          "exponents": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "f",
+          "description_en": "Acoustic frequency.",
+          "description_fr": "Fréquence acoustique."
+        },
+        {
+          "symbol": "lambda",
+          "name_en": "Wavelength",
+          "name_fr": "Longueur d'onde",
+          "si_unit": "m",
+          "exponents": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "latex": "\\lambda",
+          "description_en": "Wavelength.",
+          "description_fr": "Longueur d'onde."
+        },
+        {
+          "symbol": "pa",
+          "name_en": "Sound pressure",
+          "name_fr": "Pression acoustique",
+          "si_unit": "Pa",
+          "exponents": [
+            1.0,
+            -1.0,
+            -2.0
+          ],
+          "latex": "p",
+          "description_en": "Acoustic pressure.",
+          "description_fr": "Pression acoustique."
+        },
+        {
+          "symbol": "rho",
+          "name_en": "Density",
+          "name_fr": "Masse volumique",
+          "si_unit": "kg/m^3",
+          "exponents": [
+            1.0,
+            -3.0,
+            0.0
+          ],
+          "latex": "\\rho",
+          "description_en": "Medium density.",
+          "description_fr": "Masse volumique du milieu."
+        },
+        {
+          "symbol": "Ia",
+          "name_en": "Acoustic intensity",
+          "name_fr": "Intensité acoustique",
+          "si_unit": "W/m^2",
+          "exponents": [
+            1.0,
+            0.0,
+            -3.0
+          ],
+          "latex": "I",
+          "description_en": "Acoustic intensity.",
+          "description_fr": "Intensité acoustique."
+        },
+        {
+          "symbol": "u",
+          "name_en": "Particle velocity",
+          "name_fr": "Vitesse particulaire",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "u",
+          "description_en": "Acoustic particle velocity.",
+          "description_fr": "Vitesse particulaire acoustique."
+        },
+        {
+          "symbol": "Z",
+          "name_en": "Acoustic impedance",
+          "name_fr": "Impédance acoustique",
+          "si_unit": "Pa.s/m",
+          "exponents": [
+            1.0,
+            -2.0,
+            -1.0
+          ],
+          "latex": "Z",
+          "description_en": "Specific acoustic impedance.",
+          "description_fr": "Impédance acoustique spécifique."
+        }
+      ]
+    },
+    {
+      "id": "energetics",
+      "name_en": "Energetics",
+      "name_fr": "Énergétique",
+      "variables": [
+        {
+          "symbol": "E",
+          "name_en": "Energy",
+          "name_fr": "Énergie",
+          "si_unit": "J",
+          "exponents": [
+            1.0,
+            2.0,
+            -2.0
+          ],
+          "latex": "E",
+          "description_en": "Energy.",
+          "description_fr": "Énergie."
+        },
+        {
+          "symbol": "P",
+          "name_en": "Power",
+          "name_fr": "Puissance",
+          "si_unit": "W",
+          "exponents": [
+            1.0,
+            2.0,
+            -3.0
+          ],
+          "latex": "P",
+          "description_en": "Power.",
+          "description_fr": "Puissance."
+        },
+        {
+          "symbol": "e",
+          "name_en": "Specific energy",
+          "name_fr": "Énergie massique",
+          "si_unit": "J/kg",
+          "exponents": [
+            0.0,
+            2.0,
+            -2.0
+          ],
+          "latex": "e",
+          "description_en": "Specific (per-mass) energy.",
+          "description_fr": "Énergie massique."
+        },
+        {
+          "symbol": "mdot",
+          "name_en": "Mass flow rate",
+          "name_fr": "Débit massique",
+          "si_unit": "kg/s",
+          "exponents": [
+            1.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "\\dot{m}",
+          "description_en": "Mass flow rate.",
+          "description_fr": "Débit massique."
+        },
+        {
+          "symbol": "Pv",
+          "name_en": "Power density",
+          "name_fr": "Densité de puissance",
+          "si_unit": "W/m^3",
+          "exponents": [
+            1.0,
+            -1.0,
+            -3.0
+          ],
+          "latex": "P_v",
+          "description_en": "Volumetric power density.",
+          "description_fr": "Densité volumique de puissance."
+        },
+        {
+          "symbol": "t",
+          "name_en": "Time",
+          "name_fr": "Temps",
+          "si_unit": "s",
+          "exponents": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "latex": "t",
+          "description_en": "Time.",
+          "description_fr": "Temps."
+        },
+        {
+          "symbol": "eta",
+          "name_en": "Efficiency",
+          "name_fr": "Rendement",
+          "si_unit": "-",
+          "exponents": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "latex": "\\eta",
+          "description_en": "Dimensionless efficiency.",
+          "description_fr": "Rendement adimensionnel."
+        }
+      ]
+    },
+    {
+      "id": "aerodynamics",
+      "name_en": "Aerodynamics",
+      "name_fr": "Aérodynamique",
+      "variables": [
+        {
+          "symbol": "Vinf",
+          "name_en": "Freestream velocity",
+          "name_fr": "Vitesse amont",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "V_\\infty",
+          "description_en": "Free-stream velocity.",
+          "description_fr": "Vitesse de l'écoulement amont."
+        },
+        {
+          "symbol": "rho",
+          "name_en": "Density",
+          "name_fr": "Masse volumique",
+          "si_unit": "kg/m^3",
+          "exponents": [
+            1.0,
+            -3.0,
+            0.0
+          ],
+          "latex": "\\rho",
+          "description_en": "Air density.",
+          "description_fr": "Masse volumique de l'air."
+        },
+        {
+          "symbol": "mu",
+          "name_en": "Dynamic viscosity",
+          "name_fr": "Viscosité dynamique",
+          "si_unit": "Pa.s",
+          "exponents": [
+            1.0,
+            -1.0,
+            -1.0
+          ],
+          "latex": "\\mu",
+          "description_en": "Dynamic viscosity.",
+          "description_fr": "Viscosité dynamique."
+        },
+        {
+          "symbol": "a",
+          "name_en": "Speed of sound",
+          "name_fr": "Vitesse du son",
+          "si_unit": "m/s",
+          "exponents": [
+            0.0,
+            1.0,
+            -1.0
+          ],
+          "latex": "a",
+          "description_en": "Speed of sound.",
+          "description_fr": "Vitesse du son."
+        },
+        {
+          "symbol": "c",
+          "name_en": "Chord length",
+          "name_fr": "Corde",
+          "si_unit": "m",
+          "exponents": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "latex": "c",
+          "description_en": "Airfoil chord length.",
+          "description_fr": "Longueur de corde du profil."
+        },
+        {
+          "symbol": "Lift",
+          "name_en": "Lift",
+          "name_fr": "Portance",
+          "si_unit": "N",
+          "exponents": [
+            1.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "L",
+          "description_en": "Aerodynamic lift force.",
+          "description_fr": "Force de portance."
+        },
+        {
+          "symbol": "Drag",
+          "name_en": "Drag",
+          "name_fr": "Traînée",
+          "si_unit": "N",
+          "exponents": [
+            1.0,
+            1.0,
+            -2.0
+          ],
+          "latex": "D",
+          "description_en": "Aerodynamic drag force.",
+          "description_fr": "Force de traînée."
+        },
+        {
+          "symbol": "S",
+          "name_en": "Reference area",
+          "name_fr": "Surface de référence",
+          "si_unit": "m^2",
+          "exponents": [
+            0.0,
+            2.0,
+            0.0
+          ],
+          "latex": "S",
+          "description_en": "Reference (wing) area.",
+          "description_fr": "Surface de référence (aile)."
+        },
+        {
+          "symbol": "Omega",
+          "name_en": "Angular velocity",
+          "name_fr": "Vitesse angulaire",
+          "si_unit": "rad/s",
+          "exponents": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "latex": "\\Omega",
+          "description_en": "Rotational speed.",
+          "description_fr": "Vitesse de rotation."
+        }
+      ]
+    }
+  ]
+}

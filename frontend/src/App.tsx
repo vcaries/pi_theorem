@@ -1,4 +1,4 @@
-import { Calculator, Eraser, FlaskConical, Library, Sparkles } from "lucide-react";
+import { Calculator, Eraser, FlaskConical, Library, Loader2, Sparkles } from "lucide-react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -48,6 +48,7 @@ export default function App() {
   const solve = useAppStore((s) => s.solve);
   const clearVariables = useAppStore((s) => s.clearVariables);
   const loadInitialData = useAppStore((s) => s.loadInitialData);
+  const enginePreparing = useAppStore((s) => s.enginePreparing);
 
   useEffect(() => {
     void loadInitialData();
@@ -60,6 +61,13 @@ export default function App() {
       <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <main className="mx-auto max-w-6xl px-4 py-8">
+        {enginePreparing && (
+          <div className="mb-6 flex items-center gap-3 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm text-brand-800 dark:border-brand-900/60 dark:bg-brand-950/40 dark:text-brand-200">
+            <Loader2 size={16} className="animate-spin shrink-0" />
+            {t("engine.preparing")}
+          </div>
+        )}
+
         {/* Hero */}
         <div className="animate-fade-in mb-8 max-w-3xl">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-900/40 dark:text-brand-200">

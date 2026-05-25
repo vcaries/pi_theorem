@@ -57,6 +57,9 @@
     "generic": "Something went wrong.",
     "network": "Cannot reach the API. Is the backend running on port 8000?"
   },
+  "engine": {
+    "preparing": "Initializing the scientific engine (Python + SymPy via WebAssembly)… the first computation may take a few seconds."
+  },
   "footer": {
     "builtBy": "Built by V. Caries",
     "engine": "Powered by FastAPI + SymPy"
