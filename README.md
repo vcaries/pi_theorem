@@ -1,88 +1,183 @@
-# Pi Theorem Calculator
+<div align="center">
 
-This Python module applies the Pi theorem (Buckingham π theorem) to a set of variables with given dimensions.
+# Π Pi-Scope
+
+### Dimensional analysis, reimagined for the web.
+
+**Pi-Scope** turns a set of dimensioned physical variables into the dimensionless
+groups that govern them, using the **Vaschy–Buckingham (Π) theorem** — with a
+modern, bilingual, theme-aware interface and a rigorous SymPy-powered engine.
+
+[![CI](https://github.com/vcaries/pi-scope/actions/workflows/ci.yml/badge.svg)](https://github.com/vcaries/pi-scope/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18-61dafb.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6.svg)](https://www.typescriptlang.org/)
+[![Code style: Ruff](https://img.shields.io/badge/code%20style-ruff-261230.svg)](https://github.com/astral-sh/ruff)
+
+</div>
+
+---
 
 ## Overview
 
-The Pi theorem is used in dimensional analysis to compute dimensionless parameters (Pi terms) from a set of variables. This can simplify physical equations by reducing the number of variables involved.
+The **Buckingham Π theorem** is a cornerstone of dimensional analysis: any
+physically meaningful equation involving *n* variables can be rewritten in terms
+of *n − k* independent **dimensionless groups**, where *k* is the number of
+independent base dimensions involved. Pi-Scope automates this reduction and
+presents it beautifully.
 
-## Functions
+It began as a single Python script (`pi_theorem.py`) reproducing the similarity
+parameters from *Chen et al., 1990*. This repository elevates that idea into a
+full, production-grade web application that demonstrates scientific computing, a
+clean software architecture, and modern engineering-focused UX.
 
-### apply_pi_theorem(variables: dict, output: bool = False) -> None | list[sp.Expr]:
+> **Try the flagship example in one click:** the compressor tip-clearance case
+> from Chen (1990) — 11 variables reduced to 8 dimensionless groups.
 
-Applies the Pi theorem to the provided variables and dimensions, printing a list of dimensionless numbers if `output` is `True`.
+## Features
 
-## Example Usage
+- **Rigorous engine** — exact rational linear algebra via SymPy; integer-reduced,
+  sign-normalised Π groups; full **7 SI base dimensions** (M, L, T, Θ, I, N, J).
+- **Curated variable library** — dozens of quantities organised by physics domain
+  (mechanics, fluids, thermodynamics, heat transfer, electromagnetism, acoustics,
+  energetics, aerodynamics), each with symbol, name, SI unit and description.
+- **Worked examples** — preloaded, citeable case studies (Chen 1990, Reynolds,
+  drag on a sphere, forced convection).
+- **Beautiful math** — equations rendered with **KaTeX**; the dimensional matrix
+  is shown explicitly alongside its rank.
+- **Modern UX** — light/dark themes, full **French / English** internationalisation,
+  responsive layout, subtle animations, copy-to-clipboard, and JSON / LaTeX export.
+- **Clean architecture** — decoupled FastAPI backend and React + TypeScript
+  frontend, typed end-to-end, fully tested, containerised.
 
-```python
-from pi_theorem_calculator import apply_pi_theorem
+## Screenshots
 
-# Example usage based on (Chen, 1990)
-variables: dict = {
-    'tau': [0, 1, 0],        # Tip gap size [L]
-    'rho': [1, -3, 0],       # Density [M L^-3]
-    'dt': [0, 0, 1],         # Time step [T]
-    'DeltaP': [1, -1, -2],   # Pressure difference [M L^-1 T^-2]
-    'Gamma': [0, 2, -1],     # Circulation [L^2 T^-1]
-    'y_v': [0, 1, 0],        # y coordinate of the vortex [L]
-    'z_v': [0, 1, 0],        # z coordinate of the vortex [L]
-    'y_c': [0, 1, 0],        # y coordinate of the vortex core [L]
-    'z_c': [0, 1, 0],        # z coordinate of the vortex core [L]
-    'v': [0, 1, -1],         # Velocity v [L T^-1]
-    'w': [0, 1, -1],         # Velocity w [L T^-1]
-}                            # 'name': [M, L, T]
+![Pi-Scope preview](docs/screenshots/preview.svg)
 
-apply_pi_theorem(variables)
+> The image above is a mockup placeholder. Replace it with real captures /
+> a demo GIF in `docs/screenshots/` — see that folder's README for tips.
+
+## Architecture at a glance
+
+```mermaid
+flowchart LR
+    subgraph Frontend["Frontend · React + TS + Vite"]
+        UI[UI components] --> Store[Zustand store]
+        Store --> Client[Typed API client]
+    end
+    subgraph Backend["Backend · FastAPI"]
+        Routes[API routes] --> Services[Services]
+        Services --> Engine[(SymPy Π engine)]
+        Services --> Data[(YAML library &amp; examples)]
+    end
+    Client -- HTTP/JSON --> Routes
 ```
 
-## GUI Usage
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full design.
 
-The Pi Theorem Calculator also includes a graphical user interface (GUI) for easier input and visualization.
+## Quick start
 
-### Running the GUI
+### Option A — Docker (one command)
 
-To launch the GUI, execute the following command in your terminal:
-
-```sh
-python gui.py
+```bash
+docker compose up --build
+# Frontend: http://localhost:8080   ·   API docs: http://localhost:8000/docs
 ```
 
-### Using the GUI
+### Option B — Local development
 
-1. **Adding Variables:**
-   - Enter the variable name and its dimensions (M, L, T) in the respective input fields.
-   - Click the "Add Variable" button to add the variable to the list.
+**Backend** (Python 3.10+):
 
-2. **Calculating Pi Terms:**
-   - After adding all the necessary variables, click the "Calculate Pi Terms" button.
-   - The calculated dimensionless Pi terms will be displayed in the "Dimensionless Numbers" section.
-
-### GUI Example
-
-1. **Add Variables:**
-   - Variable: `tau`, M: `0`, L: `1`, T: `0`
-   - Click "Add Variable".
-   - Repeat for other variables like `rho`, `dt`, `DeltaP`, etc.
-
-2. **Calculate Pi Terms:**
-   - Click "Calculate Pi Terms".
-   - View the results in the "Dimensionless Numbers" section.
-
-### Note
-
-If you encounter the following warning:
-
-```
-Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+```bash
+cd backend
+python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements-dev.txt
+uvicorn app.main:app --reload --port 8000           # http://localhost:8000/docs
 ```
 
-You can set the environment variable `QT_QPA_PLATFORM` to `wayland` to force the application to use the Wayland platform plugin:
+**Frontend** (Node 18+):
 
-```sh
-export QT_QPA_PLATFORM=wayland
-python gui.py
+```bash
+cd frontend
+npm install
+npm run dev                                          # http://localhost:5173
 ```
 
-## Author
+The Vite dev server proxies `/api` to the backend on port 8000, so the two run
+side by side with no CORS setup.
 
-**V. Caries**
+> A `Makefile` wraps the common tasks: `make help`, `make dev-backend`,
+> `make dev-frontend`, `make test`, `make lint`, `make build`.
+
+## Project structure
+
+```
+pi_theorem/
+├── backend/            # FastAPI + SymPy scientific engine and API
+│   ├── app/
+│   │   ├── core/       # Pure engine: dimensions, Pi theorem (no web deps)
+│   │   ├── api/        # Routers (health, pi, library, examples)
+│   │   ├── models/     # Pydantic schemas (API contract)
+│   │   ├── services/   # Library, examples, solver adapter
+│   │   └── data/       # YAML variable library & worked examples
+│   └── tests/          # pytest suite (engine + API)
+├── frontend/           # React + TypeScript + Vite + Tailwind UI
+│   └── src/            # components, store, i18n, api client, hooks, lib
+├── docs/               # Architecture, stack, roadmap, UI/UX, Git guide…
+├── legacy/             # Original PyQt5 script, preserved for reference
+├── docker-compose.yml
+└── Makefile
+```
+
+## Scientific background
+
+Given variables with dimensional formulae, Pi-Scope builds the **dimensional
+matrix** *D* (rows = active base dimensions, columns = variables), computes a
+basis of its **null space**, and turns each basis vector into a dimensionless
+group. The number of independent groups is `n − rank(D)`. Exponents are scaled
+to the smallest integers and sign-normalised for a conventional presentation.
+
+The flagship example reproduces the dimensionless parameters of:
+
+> Chen, G.T.; Greitzer, E.M.; Tan, C.S.; Marble, F.E. *Similarity Analysis of
+> Compressor Tip Clearance Flow Structure* (1990).
+
+## API reference
+
+Interactive docs are served at `/docs` (Swagger) and `/redoc`. Key endpoints:
+
+| Method | Path | Description |
+| --- | --- | --- |
+| `GET` | `/api/health` | Liveness probe and metadata |
+| `POST` | `/api/pi/solve` | Compute the Π groups for a set of variables |
+| `GET` | `/api/library` | SI base dimensions + curated variable library |
+| `GET` | `/api/examples` | List worked examples |
+| `GET` | `/api/examples/{id}` | Fetch one worked example |
+
+## Testing & quality
+
+```bash
+cd backend && pytest            # unit + integration tests
+cd backend && ruff check . && mypy app
+cd frontend && npm run typecheck && npm run build
+```
+
+CI runs all of the above on every push and pull request across Python 3.10 and
+3.12 (see [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
+
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md) · [Technology stack](docs/STACK.md)
+- [Roadmap](docs/ROADMAP.md) · [UI/UX design](docs/UI_UX.md)
+- [Git & GitHub guide](docs/GIT_GUIDE.md) · [Future improvements](docs/FUTURE.md)
+
+## Contributing
+
+Contributions are welcome! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and
+follow the [Conventional Commits](https://www.conventionalcommits.org) style.
+
+## License
+
+Released under the [MIT License](LICENSE) © 2026 V. Caries.

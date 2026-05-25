@@ -1,0 +1,36 @@
+name: "✨ Feature request"
+description: Suggest an idea or improvement for Pi-Scope.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem would this feature solve?
+      placeholder: I'm frustrated when ...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Scientific engine
+        - Variable library
+        - UI / UX
+        - Internationalisation
+        - Export / integration
+        - Other
+    validations:
+      required: true

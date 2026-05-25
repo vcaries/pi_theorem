@@ -1,0 +1,88 @@
+# =============================================================================
+# Pi-Scope worked examples (preloaded case studies)
+# Exponents use the canonical SI order [M, L, T, Theta, I, N, J].
+# =============================================================================
+
+examples:
+  # ---------------------------------------------------------------------------
+  # Flagship case study, inherited from the original project.
+  - id: chen_1990
+    title_en: "Compressor tip-clearance vortex (Chen, 1990)"
+    title_fr: "Tourbillon de jeu en sommet d'aube (Chen, 1990)"
+    reference: "Chen, G.T.; Greitzer, E.M.; Tan, C.S.; Marble, F.E. Similarity Analysis of Compressor Tip Clearance Flow Structure (1990)."
+    description_en: >-
+      Dimensional analysis of the tip-clearance flow structure in an axial
+      compressor. Eleven dimensioned quantities reduce to eight independent
+      dimensionless groups, reproducing the similarity parameters of the paper.
+    description_fr: >-
+      Analyse dimensionnelle de la structure d'écoulement de jeu en sommet
+      d'aube dans un compresseur axial. Onze grandeurs dimensionnées se
+      réduisent à huit groupes adimensionnels indépendants, reproduisant les
+      paramètres de similitude de l'article.
+    variables:
+      - { symbol: tau,    latex: "\\tau",     exponents: [0, 1, 0],   name: "Tip gap size" }
+      - { symbol: rho,    latex: "\\rho",     exponents: [1, -3, 0],  name: "Density" }
+      - { symbol: dt,     latex: "\\delta t", exponents: [0, 0, 1],   name: "Time step" }
+      - { symbol: DeltaP, latex: "\\Delta p", exponents: [1, -1, -2], name: "Pressure difference" }
+      - { symbol: Gamma,  latex: "\\Gamma",   exponents: [0, 2, -1],  name: "Circulation" }
+      - { symbol: y_v,    latex: "y_v",       exponents: [0, 1, 0],   name: "Vortex y-coordinate" }
+      - { symbol: z_v,    latex: "z_v",       exponents: [0, 1, 0],   name: "Vortex z-coordinate" }
+      - { symbol: y_c,    latex: "y_c",       exponents: [0, 1, 0],   name: "Vortex core y-coordinate" }
+      - { symbol: z_c,    latex: "z_c",       exponents: [0, 1, 0],   name: "Vortex core z-coordinate" }
+      - { symbol: v,      latex: "v",         exponents: [0, 1, -1],  name: "Velocity v" }
+      - { symbol: w,      latex: "w",         exponents: [0, 1, -1],  name: "Velocity w" }
+
+  # ---------------------------------------------------------------------------
+  - id: pipe_flow_reynolds
+    title_en: "Pipe flow: the Reynolds number"
+    title_fr: "Écoulement en conduite : le nombre de Reynolds"
+    reference: "Classic textbook example (Buckingham, 1914)."
+    description_en: >-
+      Four quantities governing internal flow collapse to a single dimensionless
+      group, the Reynolds number Re = rho V D / mu.
+    description_fr: >-
+      Quatre grandeurs gouvernant un écoulement interne se réduisent à un unique
+      groupe adimensionnel, le nombre de Reynolds Re = rho V D / mu.
+    variables:
+      - { symbol: rho, latex: "\\rho", exponents: [1, -3, 0],  name: "Density" }
+      - { symbol: V,   latex: "V",     exponents: [0, 1, -1],  name: "Velocity" }
+      - { symbol: D,   latex: "D",     exponents: [0, 1, 0],   name: "Diameter" }
+      - { symbol: mu,  latex: "\\mu",  exponents: [1, -1, -1], name: "Dynamic viscosity" }
+
+  # ---------------------------------------------------------------------------
+  - id: drag_sphere
+    title_en: "Drag on a sphere"
+    title_fr: "Traînée d'une sphère"
+    reference: "Classic textbook example."
+    description_en: >-
+      The drag force on a sphere in a viscous flow yields two groups: a drag
+      coefficient and the Reynolds number.
+    description_fr: >-
+      La force de traînée sur une sphère dans un écoulement visqueux donne deux
+      groupes : un coefficient de traînée et le nombre de Reynolds.
+    variables:
+      - { symbol: F,   latex: "F",     exponents: [1, 1, -2],  name: "Drag force" }
+      - { symbol: rho, latex: "\\rho", exponents: [1, -3, 0],  name: "Density" }
+      - { symbol: V,   latex: "V",     exponents: [0, 1, -1],  name: "Velocity" }
+      - { symbol: D,   latex: "D",     exponents: [0, 1, 0],   name: "Diameter" }
+      - { symbol: mu,  latex: "\\mu",  exponents: [1, -1, -1], name: "Dynamic viscosity" }
+
+  # ---------------------------------------------------------------------------
+  - id: forced_convection
+    title_en: "Forced convection (Nusselt correlation)"
+    title_fr: "Convection forcée (corrélation de Nusselt)"
+    reference: "Classic heat-transfer example."
+    description_en: >-
+      Heat transfer in forced convection reduces to the Nusselt, Reynolds and
+      Prandtl numbers — the basis of correlations such as Dittus–Boelter.
+    description_fr: >-
+      Le transfert thermique en convection forcée se réduit aux nombres de
+      Nusselt, Reynolds et Prandtl — base de corrélations comme Dittus–Boelter.
+    variables:
+      - { symbol: h,   latex: "h",     exponents: [1, 0, -3, -1], name: "Heat transfer coefficient" }
+      - { symbol: L,   latex: "L",     exponents: [0, 1, 0],      name: "Length" }
+      - { symbol: k,   latex: "k",     exponents: [1, 1, -3, -1], name: "Thermal conductivity" }
+      - { symbol: rho, latex: "\\rho", exponents: [1, -3, 0],     name: "Density" }
+      - { symbol: V,   latex: "V",     exponents: [0, 1, -1],     name: "Velocity" }
+      - { symbol: mu,  latex: "\\mu",  exponents: [1, -1, -1],    name: "Dynamic viscosity" }
+      - { symbol: cp,  latex: "c_p",   exponents: [0, 2, -2, -1], name: "Specific heat" }

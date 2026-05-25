@@ -1,0 +1,33 @@
+name: Release
+
+# Create a GitHub Release whenever a semver tag is pushed (e.g. v1.0.0).
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate release notes from CHANGELOG
+        id: notes
+        run: |
+          echo "Release ${GITHUB_REF_NAME}" > notes.md
+          echo "" >> notes.md
+          # Extract the section for this tag from CHANGELOG.md, if present.
+          awk "/## \[${GITHUB_REF_NAME#v}\]/{flag=1;next}/## \[/{flag=0}flag" CHANGELOG.md >> notes.md || true
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: notes.md
+          generate_release_notes: true

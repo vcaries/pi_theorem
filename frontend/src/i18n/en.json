@@ -1,0 +1,64 @@
+{
+  "app": {
+    "title": "Pi-Scope",
+    "tagline": "Dimensional analysis with the Vaschy–Buckingham Π theorem",
+    "intro": "Define your physical variables, assign their fundamental dimensions, and instantly obtain the dimensionless groups that govern your problem."
+  },
+  "nav": {
+    "github": "Source code",
+    "theme": "Toggle theme",
+    "language": "Language"
+  },
+  "input": {
+    "title": "Variables",
+    "subtitle": "Add custom variables or pick from the library.",
+    "symbol": "Symbol",
+    "name": "Name (optional)",
+    "latex": "LaTeX (optional)",
+    "add": "Add variable",
+    "empty": "No variables yet. Add some, load an example, or pick from the library.",
+    "clear": "Clear all",
+    "dimensions": "Dimensions (powers of SI base units)",
+    "actions": "Actions",
+    "delete": "Remove",
+    "duplicate": "A variable with this symbol already exists.",
+    "symbolRequired": "A symbol is required."
+  },
+  "library": {
+    "title": "Variable library",
+    "subtitle": "Curated quantities grouped by physics domain.",
+    "search": "Search a variable…",
+    "addAll": "Add category",
+    "noResults": "No variable matches your search."
+  },
+  "examples": {
+    "title": "Worked examples",
+    "subtitle": "Load a real, citeable case study in one click.",
+    "load": "Load",
+    "reference": "Reference"
+  },
+  "results": {
+    "title": "Results",
+    "compute": "Compute Π groups",
+    "computing": "Computing…",
+    "empty": "Add at least two variables and run the computation to see the dimensionless groups.",
+    "summary": "{{variables}} variables · rank {{rank}} · {{groups}} dimensionless group(s)",
+    "matrix": "Dimensional matrix",
+    "matrixHint": "Rows are the active base dimensions, columns are the variables.",
+    "groups": "Dimensionless groups",
+    "product": "Product of all groups",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "exportJson": "Export JSON",
+    "exportLatex": "Export LaTeX",
+    "theorem": "By the Vaschy–Buckingham theorem, {{n}} variables involving {{k}} independent dimensions reduce to {{p}} dimensionless group(s)."
+  },
+  "errors": {
+    "generic": "Something went wrong.",
+    "network": "Cannot reach the API. Is the backend running on port 8000?"
+  },
+  "footer": {
+    "builtBy": "Built by V. Caries",
+    "engine": "Powered by FastAPI + SymPy"
+  }
+}

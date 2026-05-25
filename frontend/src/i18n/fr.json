@@ -1,0 +1,64 @@
+{
+  "app": {
+    "title": "Pi-Scope",
+    "tagline": "Analyse dimensionnelle par le théorème de Vaschy–Buckingham (Π)",
+    "intro": "Définissez vos variables physiques, associez-leur leurs dimensions fondamentales et obtenez instantanément les groupes adimensionnels qui gouvernent votre problème."
+  },
+  "nav": {
+    "github": "Code source",
+    "theme": "Changer de thème",
+    "language": "Langue"
+  },
+  "input": {
+    "title": "Variables",
+    "subtitle": "Ajoutez des variables personnalisées ou choisissez dans la bibliothèque.",
+    "symbol": "Symbole",
+    "name": "Nom (facultatif)",
+    "latex": "LaTeX (facultatif)",
+    "add": "Ajouter la variable",
+    "empty": "Aucune variable. Ajoutez-en, chargez un exemple ou piochez dans la bibliothèque.",
+    "clear": "Tout effacer",
+    "dimensions": "Dimensions (puissances des unités de base SI)",
+    "actions": "Actions",
+    "delete": "Supprimer",
+    "duplicate": "Une variable avec ce symbole existe déjà.",
+    "symbolRequired": "Un symbole est requis."
+  },
+  "library": {
+    "title": "Bibliothèque de variables",
+    "subtitle": "Grandeurs sélectionnées, regroupées par domaine physique.",
+    "search": "Rechercher une variable…",
+    "addAll": "Ajouter la catégorie",
+    "noResults": "Aucune variable ne correspond à votre recherche."
+  },
+  "examples": {
+    "title": "Cas d'étude",
+    "subtitle": "Chargez un cas réel et citable en un clic.",
+    "load": "Charger",
+    "reference": "Référence"
+  },
+  "results": {
+    "title": "Résultats",
+    "compute": "Calculer les groupes Π",
+    "computing": "Calcul…",
+    "empty": "Ajoutez au moins deux variables puis lancez le calcul pour voir les groupes adimensionnels.",
+    "summary": "{{variables}} variables · rang {{rank}} · {{groups}} groupe(s) adimensionnel(s)",
+    "matrix": "Matrice dimensionnelle",
+    "matrixHint": "Les lignes sont les dimensions de base actives, les colonnes les variables.",
+    "groups": "Groupes adimensionnels",
+    "product": "Produit de tous les groupes",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "exportJson": "Exporter en JSON",
+    "exportLatex": "Exporter en LaTeX",
+    "theorem": "D'après le théorème de Vaschy–Buckingham, {{n}} variables faisant intervenir {{k}} dimensions indépendantes se réduisent à {{p}} groupe(s) adimensionnel(s)."
+  },
+  "errors": {
+    "generic": "Une erreur est survenue.",
+    "network": "Impossible de joindre l'API. Le backend tourne-t-il sur le port 8000 ?"
+  },
+  "footer": {
+    "builtBy": "Réalisé par V. Caries",
+    "engine": "Propulsé par FastAPI + SymPy"
+  }
+}

@@ -1,0 +1,137 @@
+# =============================================================================
+# Pi-Scope curated variable library
+# -----------------------------------------------------------------------------
+# Each variable's `exponents` are powers of the seven SI base dimensions in the
+# canonical order:  [M, L, T, Theta, I, N, J]
+#   M = mass (kg)        L = length (m)     T = time (s)
+#   Theta = temperature (K)   I = electric current (A)
+#   N = amount of substance (mol)   J = luminous intensity (cd)
+# Trailing zeros may be omitted; the engine zero-pads shorter vectors.
+# =============================================================================
+
+categories:
+  # ---------------------------------------------------------------------------
+  - id: mechanics
+    name_en: Mechanics
+    name_fr: Mécanique
+    variables:
+      - { symbol: m,     latex: "m",            si_unit: kg,      exponents: [1, 0, 0],  name_en: Mass,              name_fr: Masse,                description_en: "Inertial mass of a body.",                  description_fr: "Masse inertielle d'un corps." }
+      - { symbol: L,     latex: "L",            si_unit: m,       exponents: [0, 1, 0],  name_en: Length,            name_fr: Longueur,             description_en: "Characteristic length.",                    description_fr: "Longueur caractéristique." }
+      - { symbol: t,     latex: "t",            si_unit: s,       exponents: [0, 0, 1],  name_en: Time,              name_fr: Temps,                description_en: "Elapsed time.",                             description_fr: "Temps écoulé." }
+      - { symbol: v,     latex: "v",            si_unit: "m/s",   exponents: [0, 1, -1], name_en: Velocity,          name_fr: Vitesse,              description_en: "Linear velocity.",                          description_fr: "Vitesse linéaire." }
+      - { symbol: a,     latex: "a",            si_unit: "m/s^2", exponents: [0, 1, -2], name_en: Acceleration,      name_fr: Accélération,         description_en: "Linear acceleration.",                      description_fr: "Accélération linéaire." }
+      - { symbol: F,     latex: "F",            si_unit: N,       exponents: [1, 1, -2], name_en: Force,             name_fr: Force,                description_en: "Mechanical force.",                         description_fr: "Force mécanique." }
+      - { symbol: E,     latex: "E",            si_unit: J,       exponents: [1, 2, -2], name_en: Energy,            name_fr: Énergie,              description_en: "Mechanical energy / work.",                 description_fr: "Énergie / travail mécanique." }
+      - { symbol: P,     latex: "P",            si_unit: W,       exponents: [1, 2, -3], name_en: Power,             name_fr: Puissance,            description_en: "Rate of energy transfer.",                  description_fr: "Débit de transfert d'énergie." }
+      - { symbol: p,     latex: "p",            si_unit: "kg.m/s",exponents: [1, 1, -1], name_en: Momentum,          name_fr: Quantité de mouvement,description_en: "Linear momentum.",                          description_fr: "Quantité de mouvement linéaire." }
+      - { symbol: omega, latex: "\\omega",      si_unit: "rad/s", exponents: [0, 0, -1], name_en: Angular velocity,  name_fr: Vitesse angulaire,    description_en: "Angular velocity.",                         description_fr: "Vitesse angulaire." }
+      - { symbol: k,     latex: "k",            si_unit: "N/m",   exponents: [1, 0, -2], name_en: Stiffness,         name_fr: Raideur,              description_en: "Spring constant.",                          description_fr: "Constante de raideur." }
+      - { symbol: g,     latex: "g",            si_unit: "m/s^2", exponents: [0, 1, -2], name_en: Gravity,           name_fr: Pesanteur,            description_en: "Gravitational acceleration.",               description_fr: "Accélération de la pesanteur." }
+
+  # ---------------------------------------------------------------------------
+  - id: fluid_mechanics
+    name_en: Fluid mechanics
+    name_fr: Mécanique des fluides
+    variables:
+      - { symbol: rho,    latex: "\\rho",       si_unit: "kg/m^3",  exponents: [1, -3, 0], name_en: Density,            name_fr: Masse volumique,     description_en: "Fluid density.",                       description_fr: "Masse volumique du fluide." }
+      - { symbol: mu,     latex: "\\mu",        si_unit: "Pa.s",    exponents: [1, -1, -1],name_en: Dynamic viscosity,  name_fr: Viscosité dynamique, description_en: "Dynamic viscosity.",                   description_fr: "Viscosité dynamique." }
+      - { symbol: nu,     latex: "\\nu",        si_unit: "m^2/s",   exponents: [0, 2, -1], name_en: Kinematic viscosity,name_fr: Viscosité cinématique,description_en: "Kinematic viscosity (mu/rho).",       description_fr: "Viscosité cinématique (mu/rho)." }
+      - { symbol: V,      latex: "V",           si_unit: "m/s",     exponents: [0, 1, -1], name_en: Flow velocity,      name_fr: Vitesse d'écoulement,description_en: "Characteristic flow velocity.",        description_fr: "Vitesse caractéristique de l'écoulement." }
+      - { symbol: D,      latex: "D",           si_unit: m,         exponents: [0, 1, 0],  name_en: Diameter,           name_fr: Diamètre,            description_en: "Characteristic length / diameter.",    description_fr: "Longueur caractéristique / diamètre." }
+      - { symbol: dP,     latex: "\\Delta p",   si_unit: Pa,        exponents: [1, -1, -2],name_en: Pressure drop,      name_fr: Différence de pression,description_en: "Pressure difference.",               description_fr: "Différence de pression." }
+      - { symbol: sigma,  latex: "\\sigma",     si_unit: "N/m",     exponents: [1, 0, -2], name_en: Surface tension,    name_fr: Tension superficielle,description_en: "Surface tension.",                    description_fr: "Tension superficielle." }
+      - { symbol: g,      latex: "g",           si_unit: "m/s^2",   exponents: [0, 1, -2], name_en: Gravity,            name_fr: Pesanteur,           description_en: "Gravitational acceleration.",          description_fr: "Accélération de la pesanteur." }
+      - { symbol: Q,      latex: "Q",           si_unit: "m^3/s",   exponents: [0, 3, -1], name_en: Volume flow rate,   name_fr: Débit volumique,     description_en: "Volumetric flow rate.",                description_fr: "Débit volumique." }
+      - { symbol: mdot,   latex: "\\dot{m}",    si_unit: "kg/s",    exponents: [1, 0, -1], name_en: Mass flow rate,     name_fr: Débit massique,      description_en: "Mass flow rate.",                      description_fr: "Débit massique." }
+      - { symbol: c,      latex: "c",           si_unit: "m/s",     exponents: [0, 1, -1], name_en: Speed of sound,     name_fr: Vitesse du son,      description_en: "Speed of sound in the medium.",        description_fr: "Vitesse du son dans le milieu." }
+      - { symbol: Gamma,  latex: "\\Gamma",     si_unit: "m^2/s",   exponents: [0, 2, -1], name_en: Circulation,        name_fr: Circulation,         description_en: "Velocity circulation.",                description_fr: "Circulation de la vitesse." }
+
+  # ---------------------------------------------------------------------------
+  - id: thermodynamics
+    name_en: Thermodynamics
+    name_fr: Thermodynamique
+    variables:
+      - { symbol: T,    latex: "T",        si_unit: K,            exponents: [0, 0, 0, 1],   name_en: Temperature,        name_fr: Température,            description_en: "Absolute temperature.",                description_fr: "Température absolue." }
+      - { symbol: p,    latex: "p",        si_unit: Pa,           exponents: [1, -1, -2],    name_en: Pressure,           name_fr: Pression,              description_en: "Thermodynamic pressure.",              description_fr: "Pression thermodynamique." }
+      - { symbol: Vol,  latex: "V",        si_unit: "m^3",        exponents: [0, 3, 0],      name_en: Volume,             name_fr: Volume,                description_en: "Volume.",                              description_fr: "Volume." }
+      - { symbol: U,    latex: "U",        si_unit: J,            exponents: [1, 2, -2],     name_en: Internal energy,    name_fr: Énergie interne,       description_en: "Internal energy.",                     description_fr: "Énergie interne." }
+      - { symbol: S,    latex: "S",        si_unit: "J/K",        exponents: [1, 2, -2, -1], name_en: Entropy,            name_fr: Entropie,              description_en: "Entropy.",                             description_fr: "Entropie." }
+      - { symbol: cp,   latex: "c_p",      si_unit: "J/(kg.K)",   exponents: [0, 2, -2, -1], name_en: Specific heat,      name_fr: Chaleur massique,      description_en: "Specific heat capacity at constant pressure.", description_fr: "Capacité thermique massique à pression constante." }
+      - { symbol: R,    latex: "R",        si_unit: "J/(kg.K)",   exponents: [0, 2, -2, -1], name_en: Specific gas const.,name_fr: Constante massique des gaz, description_en: "Specific gas constant.",          description_fr: "Constante spécifique des gaz." }
+      - { symbol: n,    latex: "n",        si_unit: mol,          exponents: [0, 0, 0, 0, 0, 1], name_en: Amount of substance, name_fr: Quantité de matière, description_en: "Amount of substance.",            description_fr: "Quantité de matière." }
+      - { symbol: Rm,   latex: "R_m",      si_unit: "J/(mol.K)",  exponents: [1, 2, -2, -1, 0, -1], name_en: Molar gas constant, name_fr: Constante molaire des gaz, description_en: "Universal (molar) gas constant.", description_fr: "Constante universelle (molaire) des gaz." }
+
+  # ---------------------------------------------------------------------------
+  - id: heat_transfer
+    name_en: Heat transfer
+    name_fr: Transfert thermique
+    variables:
+      - { symbol: kth,  latex: "k",          si_unit: "W/(m.K)",  exponents: [1, 1, -3, -1], name_en: Thermal conductivity, name_fr: Conductivité thermique, description_en: "Thermal conductivity.",            description_fr: "Conductivité thermique." }
+      - { symbol: h,    latex: "h",          si_unit: "W/(m^2.K)",exponents: [1, 0, -3, -1], name_en: Heat transfer coeff., name_fr: Coefficient d'échange, description_en: "Convective heat transfer coefficient.", description_fr: "Coefficient de convection." }
+      - { symbol: alpha,latex: "\\alpha",    si_unit: "m^2/s",    exponents: [0, 2, -1],     name_en: Thermal diffusivity,  name_fr: Diffusivité thermique, description_en: "Thermal diffusivity.",             description_fr: "Diffusivité thermique." }
+      - { symbol: qpp,  latex: "q''",        si_unit: "W/m^2",    exponents: [1, 0, -3],     name_en: Heat flux,            name_fr: Densité de flux thermique, description_en: "Surface heat flux.",           description_fr: "Densité de flux thermique surfacique." }
+      - { symbol: dT,   latex: "\\Delta T",  si_unit: K,          exponents: [0, 0, 0, 1],   name_en: Temperature diff.,    name_fr: Écart de température, description_en: "Temperature difference.",           description_fr: "Différence de température." }
+      - { symbol: cp,   latex: "c_p",        si_unit: "J/(kg.K)", exponents: [0, 2, -2, -1], name_en: Specific heat,        name_fr: Chaleur massique,    description_en: "Specific heat capacity.",            description_fr: "Capacité thermique massique." }
+      - { symbol: rho,  latex: "\\rho",      si_unit: "kg/m^3",   exponents: [1, -3, 0],     name_en: Density,              name_fr: Masse volumique,     description_en: "Density.",                           description_fr: "Masse volumique." }
+      - { symbol: beta, latex: "\\beta",     si_unit: "1/K",      exponents: [0, 0, 0, -1],  name_en: Thermal expansion,    name_fr: Dilatation thermique,description_en: "Volumetric thermal expansion coefficient.", description_fr: "Coefficient de dilatation thermique." }
+      - { symbol: L,    latex: "L",          si_unit: m,          exponents: [0, 1, 0],      name_en: Length,               name_fr: Longueur,            description_en: "Characteristic length.",             description_fr: "Longueur caractéristique." }
+      - { symbol: V,    latex: "V",          si_unit: "m/s",      exponents: [0, 1, -1],     name_en: Velocity,             name_fr: Vitesse,             description_en: "Flow velocity.",                     description_fr: "Vitesse d'écoulement." }
+
+  # ---------------------------------------------------------------------------
+  - id: electromagnetism
+    name_en: Electromagnetism
+    name_fr: Électromagnétisme
+    variables:
+      - { symbol: I,     latex: "I",          si_unit: A,    exponents: [0, 0, 0, 0, 1],      name_en: Electric current,  name_fr: Courant électrique,  description_en: "Electric current.",          description_fr: "Courant électrique." }
+      - { symbol: Qe,    latex: "Q",          si_unit: C,    exponents: [0, 0, 1, 0, 1],      name_en: Electric charge,   name_fr: Charge électrique,   description_en: "Electric charge.",           description_fr: "Charge électrique." }
+      - { symbol: U,     latex: "U",          si_unit: V,    exponents: [1, 2, -3, 0, -1],    name_en: Voltage,           name_fr: Tension,             description_en: "Electric potential difference.", description_fr: "Différence de potentiel." }
+      - { symbol: Res,   latex: "R",          si_unit: "Ohm",exponents: [1, 2, -3, 0, -2],    name_en: Resistance,        name_fr: Résistance,          description_en: "Electrical resistance.",     description_fr: "Résistance électrique." }
+      - { symbol: Cap,   latex: "C",          si_unit: F,    exponents: [-1, -2, 4, 0, 2],    name_en: Capacitance,       name_fr: Capacité,            description_en: "Capacitance.",               description_fr: "Capacité électrique." }
+      - { symbol: Lind,  latex: "L",          si_unit: H,    exponents: [1, 2, -2, 0, -2],    name_en: Inductance,        name_fr: Inductance,          description_en: "Inductance.",                description_fr: "Inductance." }
+      - { symbol: Efield,latex: "E",          si_unit: "V/m",exponents: [1, 1, -3, 0, -1],    name_en: Electric field,    name_fr: Champ électrique,    description_en: "Electric field strength.",   description_fr: "Champ électrique." }
+      - { symbol: B,     latex: "B",          si_unit: T,    exponents: [1, 0, -2, 0, -1],    name_en: Magnetic flux density, name_fr: Densité de flux magnétique, description_en: "Magnetic flux density.", description_fr: "Densité de flux magnétique." }
+      - { symbol: eps,   latex: "\\varepsilon",si_unit: "F/m",exponents: [-1, -3, 4, 0, 2],   name_en: Permittivity,      name_fr: Permittivité,        description_en: "Electric permittivity.",     description_fr: "Permittivité électrique." }
+      - { symbol: mu0,   latex: "\\mu_0",     si_unit: "H/m",exponents: [1, 1, -2, 0, -2],    name_en: Permeability,      name_fr: Perméabilité,        description_en: "Magnetic permeability.",     description_fr: "Perméabilité magnétique." }
+      - { symbol: f,     latex: "f",          si_unit: Hz,   exponents: [0, 0, -1],           name_en: Frequency,         name_fr: Fréquence,           description_en: "Frequency.",                 description_fr: "Fréquence." }
+
+  # ---------------------------------------------------------------------------
+  - id: acoustics
+    name_en: Acoustics
+    name_fr: Acoustique
+    variables:
+      - { symbol: c,      latex: "c",        si_unit: "m/s",      exponents: [0, 1, -1],  name_en: Speed of sound,    name_fr: Célérité du son,    description_en: "Speed of sound.",            description_fr: "Vitesse du son." }
+      - { symbol: f,      latex: "f",        si_unit: Hz,         exponents: [0, 0, -1],  name_en: Frequency,         name_fr: Fréquence,          description_en: "Acoustic frequency.",        description_fr: "Fréquence acoustique." }
+      - { symbol: lambda, latex: "\\lambda", si_unit: m,          exponents: [0, 1, 0],   name_en: Wavelength,        name_fr: Longueur d'onde,    description_en: "Wavelength.",                description_fr: "Longueur d'onde." }
+      - { symbol: pa,     latex: "p",        si_unit: Pa,         exponents: [1, -1, -2], name_en: Sound pressure,    name_fr: Pression acoustique,description_en: "Acoustic pressure.",         description_fr: "Pression acoustique." }
+      - { symbol: rho,    latex: "\\rho",    si_unit: "kg/m^3",   exponents: [1, -3, 0],  name_en: Density,           name_fr: Masse volumique,    description_en: "Medium density.",            description_fr: "Masse volumique du milieu." }
+      - { symbol: Ia,     latex: "I",        si_unit: "W/m^2",    exponents: [1, 0, -3],  name_en: Acoustic intensity,name_fr: Intensité acoustique,description_en: "Acoustic intensity.",        description_fr: "Intensité acoustique." }
+      - { symbol: u,      latex: "u",        si_unit: "m/s",      exponents: [0, 1, -1],  name_en: Particle velocity, name_fr: Vitesse particulaire,description_en: "Acoustic particle velocity.",description_fr: "Vitesse particulaire acoustique." }
+      - { symbol: Z,      latex: "Z",        si_unit: "Pa.s/m",   exponents: [1, -2, -1], name_en: Acoustic impedance,name_fr: Impédance acoustique,description_en: "Specific acoustic impedance.",description_fr: "Impédance acoustique spécifique." }
+
+  # ---------------------------------------------------------------------------
+  - id: energetics
+    name_en: Energetics
+    name_fr: Énergétique
+    variables:
+      - { symbol: E,    latex: "E",        si_unit: J,         exponents: [1, 2, -2],  name_en: Energy,            name_fr: Énergie,            description_en: "Energy.",                       description_fr: "Énergie." }
+      - { symbol: P,    latex: "P",        si_unit: W,         exponents: [1, 2, -3],  name_en: Power,             name_fr: Puissance,          description_en: "Power.",                        description_fr: "Puissance." }
+      - { symbol: e,    latex: "e",        si_unit: "J/kg",    exponents: [0, 2, -2],  name_en: Specific energy,   name_fr: Énergie massique,   description_en: "Specific (per-mass) energy.",   description_fr: "Énergie massique." }
+      - { symbol: mdot, latex: "\\dot{m}", si_unit: "kg/s",    exponents: [1, 0, -1],  name_en: Mass flow rate,    name_fr: Débit massique,     description_en: "Mass flow rate.",               description_fr: "Débit massique." }
+      - { symbol: Pv,   latex: "P_v",      si_unit: "W/m^3",   exponents: [1, -1, -3], name_en: Power density,     name_fr: Densité de puissance,description_en: "Volumetric power density.",     description_fr: "Densité volumique de puissance." }
+      - { symbol: t,    latex: "t",        si_unit: s,         exponents: [0, 0, 1],   name_en: Time,              name_fr: Temps,              description_en: "Time.",                         description_fr: "Temps." }
+      - { symbol: eta,  latex: "\\eta",    si_unit: "-",       exponents: [0, 0, 0],   name_en: Efficiency,        name_fr: Rendement,          description_en: "Dimensionless efficiency.",     description_fr: "Rendement adimensionnel." }
+
+  # ---------------------------------------------------------------------------
+  - id: aerodynamics
+    name_en: Aerodynamics
+    name_fr: Aérodynamique
+    variables:
+      - { symbol: Vinf,  latex: "V_\\infty", si_unit: "m/s",     exponents: [0, 1, -1], name_en: Freestream velocity, name_fr: Vitesse amont,      description_en: "Free-stream velocity.",        description_fr: "Vitesse de l'écoulement amont." }
+      - { symbol: rho,   latex: "\\rho",     si_unit: "kg/m^3",  exponents: [1, -3, 0], name_en: Density,             name_fr: Masse volumique,    description_en: "Air density.",                 description_fr: "Masse volumique de l'air." }
+      - { symbol: mu,    latex: "\\mu",      si_unit: "Pa.s",    exponents: [1, -1, -1],name_en: Dynamic viscosity,   name_fr: Viscosité dynamique,description_en: "Dynamic viscosity.",           description_fr: "Viscosité dynamique." }
+      - { symbol: a,     latex: "a",         si_unit: "m/s",     exponents: [0, 1, -1], name_en: Speed of sound,      name_fr: Vitesse du son,     description_en: "Speed of sound.",              description_fr: "Vitesse du son." }
+      - { symbol: c,     latex: "c",         si_unit: m,         exponents: [0, 1, 0],  name_en: Chord length,        name_fr: Corde,              description_en: "Airfoil chord length.",        description_fr: "Longueur de corde du profil." }
+      - { symbol: Lift,  latex: "L",         si_unit: N,         exponents: [1, 1, -2], name_en: Lift,                name_fr: Portance,           description_en: "Aerodynamic lift force.",      description_fr: "Force de portance." }
+      - { symbol: Drag,  latex: "D",         si_unit: N,         exponents: [1, 1, -2], name_en: Drag,                name_fr: Traînée,            description_en: "Aerodynamic drag force.",      description_fr: "Force de traînée." }
+      - { symbol: S,     latex: "S",         si_unit: "m^2",     exponents: [0, 2, 0],  name_en: Reference area,      name_fr: Surface de référence,description_en: "Reference (wing) area.",       description_fr: "Surface de référence (aile)." }
+      - { symbol: Omega, latex: "\\Omega",   si_unit: "rad/s",   exponents: [0, 0, -1], name_en: Angular velocity,    name_fr: Vitesse angulaire,  description_en: "Rotational speed.",            description_fr: "Vitesse de rotation." }

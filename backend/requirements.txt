@@ -1,0 +1,8 @@
+# Runtime dependencies for the Pi-Scope backend.
+# Pinned with compatible-release specifiers for reproducible, secure installs.
+fastapi~=0.115
+uvicorn[standard]~=0.32
+pydantic~=2.9
+pydantic-settings~=2.6
+sympy~=1.13
+PyYAML~=6.0

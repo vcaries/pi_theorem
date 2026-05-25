@@ -1,0 +1,68 @@
+# =============================================================================
+# Pi-Scope backend project metadata and tool configuration.
+# =============================================================================
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pi-scope-backend"
+version = "1.0.0"
+description = "Buckingham Pi (Vaschy–Buckingham) theorem engine and API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "V. Caries" }]
+keywords = ["dimensional-analysis", "buckingham-pi", "physics", "fastapi", "sympy"]
+dependencies = [
+    "fastapi~=0.115",
+    "uvicorn[standard]~=0.32",
+    "pydantic~=2.9",
+    "pydantic-settings~=2.6",
+    "sympy~=1.13",
+    "PyYAML~=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest~=8.3", "pytest-cov~=6.0", "httpx~=0.27", "ruff~=0.7", "mypy~=1.13"]
+
+[project.scripts]
+pi-scope = "app.main:main"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+# ----------------------------------------------------------------------------
+# Ruff: linting + formatting (PEP 8, imports, pyflakes, bugbear, etc.)
+# ----------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "C4", "SIM", "D"]
+# D203/D213 conflict with the Google docstring convention we follow.
+ignore = ["D203", "D213"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]  # Tests are self-documenting; do not require docstrings.
+
+# ----------------------------------------------------------------------------
+# Pytest
+# ----------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=app --cov-report=term-missing"
+
+# ----------------------------------------------------------------------------
+# Mypy: static typing
+# ----------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+warn_redundant_casts = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
