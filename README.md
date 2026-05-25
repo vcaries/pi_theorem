@@ -54,10 +54,7 @@ clean software architecture, and modern engineering-focused UX.
 
 ## Screenshots
 
-![Pi-Scope preview](docs/screenshots/preview.svg)
-
-> The image above is a mockup placeholder. Replace it with real captures /
-> a demo GIF in `docs/screenshots/` — see that folder's README for tips.
+![Pi-Scope preview](docs/screenshots/light.png)
 
 ## Architecture at a glance
 
