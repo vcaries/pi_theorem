@@ -1,0 +1,14 @@
+# Normalise line endings to LF in the repository for every text file.
+# This permanently fixes the CRLF/LF churn seen when editing on Windows.
+* text=auto eol=lf
+
+# Explicit binary types (never touch).
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Windows-only scripts keep CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
