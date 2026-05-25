@@ -13,9 +13,9 @@ map onto the first three components without any conversion.
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from fractions import Fraction
-from typing import Iterable, Mapping, Sequence
 
 from app.core.exceptions import DimensionError
 
@@ -97,7 +97,7 @@ class Dimension:
     # Constructors                                                       #
     # ------------------------------------------------------------------ #
     @classmethod
-    def from_vector(cls, vector: Sequence[float | int | Fraction | str]) -> "Dimension":
+    def from_vector(cls, vector: Sequence[float | int | Fraction | str]) -> Dimension:
         """Build a dimension from an ordered exponent vector.
 
         The vector may be shorter than seven entries; missing trailing
@@ -122,7 +122,7 @@ class Dimension:
         return cls(tuple(_to_fraction(value) for value in padded))
 
     @classmethod
-    def from_mapping(cls, mapping: Mapping[str, float | int | Fraction | str]) -> "Dimension":
+    def from_mapping(cls, mapping: Mapping[str, float | int | Fraction | str]) -> Dimension:
         """Build a dimension from a ``{symbol: exponent}`` mapping.
 
         Args:

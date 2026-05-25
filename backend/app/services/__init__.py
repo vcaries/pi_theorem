@@ -7,8 +7,8 @@ examples, and converting API schemas into engine value objects.
 
 from __future__ import annotations
 
-from app.services.library_service import LibraryService, get_library_service
 from app.services.example_service import ExampleService, get_example_service
+from app.services.library_service import LibraryService, get_library_service
 from app.services.solver_service import solve_from_request
 
 __all__ = [

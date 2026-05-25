@@ -17,17 +17,16 @@ rewritten as a relation between ``n - k`` independent dimensionless groups.
 from __future__ import annotations
 
 import logging
+from collections.abc import Sequence
 from dataclasses import dataclass, field
 from fractions import Fraction
 from functools import reduce
 from math import gcd
-from typing import Sequence
 
 import sympy as sp
 
 from app.core.dimensions import (
     BASE_DIMENSIONS,
-    BASE_SYMBOLS,
     Dimension,
     active_dimension_indices,
 )
@@ -244,7 +243,7 @@ def _build_groups(
         groups.append(
             PiGroup(
                 index=index,
-                exponents=int_exponents if int_exponents is not None else tuple(),
+                exponents=int_exponents if int_exponents is not None else (),
                 latex=latex,
                 ascii=ascii_form,
             )
@@ -348,13 +347,19 @@ def _group_ascii(index: int, variables: Sequence[Variable], exponents: Sequence[
         if exponent == 0:
             continue
         magnitude = abs(exponent)
-        token = variable.symbol if magnitude == 1 else f"{variable.symbol}**{_fraction_str(magnitude)}"
+        token = (
+            variable.symbol
+            if magnitude == 1
+            else f"{variable.symbol}**{_fraction_str(magnitude)}"
+        )
         (numerator if exponent > 0 else denominator).append(token)
 
     num = "*".join(numerator) if numerator else "1"
     if denominator:
         den = "*".join(denominator)
-        return f"Pi_{index} = {num}/({den})" if len(denominator) > 1 else f"Pi_{index} = {num}/{den}"
+        if len(denominator) > 1:
+            return f"Pi_{index} = {num}/({den})"
+        return f"Pi_{index} = {num}/{den}"
     return f"Pi_{index} = {num}"
 
 
